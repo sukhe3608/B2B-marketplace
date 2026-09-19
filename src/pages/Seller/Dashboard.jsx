@@ -98,49 +98,54 @@ export default function SellerDashboard({ activePage = 'dashboard' }) {
                 </span>
               </div>
             </div>
-            <ResponsiveContainer width="100%" height={240}>
-              <AreaChart data={MOCK_SELLER_STATS.monthlyGrowth}>
-                <defs>
-                  <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#4F46E5" stopOpacity={0.2} />
-                    <stop offset="95%" stopColor="#4F46E5" stopOpacity={0} />
-                  </linearGradient>
-                  <linearGradient id="colorLeads" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#10B981" stopOpacity={0.2} />
-                    <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-                <XAxis dataKey="month" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <Tooltip
-                  contentStyle={{
-                    background: '#fff', border: '1px solid #E2E8F0',
-                    borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                    fontSize: '13px'
-                  }}
-                />
-                <Area type="monotone" dataKey="views" stroke="#4F46E5" fill="url(#colorViews)" strokeWidth={2} />
-                <Area type="monotone" dataKey="leads" stroke="#10B981" fill="url(#colorLeads)" strokeWidth={2} />
-              </AreaChart>
-            </ResponsiveContainer>
+            <div className="seller-chart-wrapper">
+              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={180}>
+                <AreaChart
+                  data={MOCK_SELLER_STATS.monthlyGrowth}
+                  margin={{ top: 10, right: 10, left: -22, bottom: 0 }}
+                >
+                  <defs>
+                    <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#4F46E5" stopOpacity={0.2} />
+                      <stop offset="95%" stopColor="#4F46E5" stopOpacity={0} />
+                    </linearGradient>
+                    <linearGradient id="colorLeads" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#10B981" stopOpacity={0.2} />
+                      <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+                  <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: '#94A3B8' }} axisLine={false} tickLine={false} width={36} />
+                  <Tooltip
+                    contentStyle={{
+                      background: '#fff', border: '1px solid #E2E8F0',
+                      borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                      fontSize: '12px'
+                    }}
+                  />
+                  <Area type="monotone" dataKey="views" stroke="#4F46E5" fill="url(#colorViews)" strokeWidth={2} />
+                  <Area type="monotone" dataKey="leads" stroke="#10B981" fill="url(#colorLeads)" strokeWidth={2} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
           </div>
 
           {/* Quick Actions Card matching Screen 8 */}
-          <div className="card" style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <h3 style={{ fontSize: 'var(--font-size-base)', fontWeight: 'var(--font-weight-semibold)', color: '#64748B', marginBottom: 'var(--space-4)' }}>
+          <div className="card seller-quick-actions-card">
+            <h3 className="seller-quick-actions-title">
               Quick Actions
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-              <button className="btn btn-secondary" style={{ justifyContent: 'flex-start', padding: '12px 16px', borderRadius: '10px' }}>
+            <div className="seller-quick-actions-btns">
+              <button className="btn btn-secondary seller-action-btn">
                 <Plus size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
                 <span style={{ fontWeight: 600, color: '#1E293B' }}>Add Product</span>
               </button>
-              <button className="btn btn-secondary" style={{ justifyContent: 'flex-start', padding: '12px 16px', borderRadius: '10px' }}>
+              <button className="btn btn-secondary seller-action-btn">
                 <FileText size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
                 <span style={{ fontWeight: 600, color: '#1E293B' }}>Create RFQ</span>
               </button>
-              <button className="btn btn-secondary" style={{ justifyContent: 'flex-start', padding: '12px 16px', borderRadius: '10px' }}>
+              <button className="btn btn-secondary seller-action-btn">
                 <Eye size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
                 <span style={{ fontWeight: 600, color: '#1E293B' }}>View Orders</span>
               </button>
@@ -158,20 +163,22 @@ export default function SellerDashboard({ activePage = 'dashboard' }) {
             {MOCK_RFQS.slice(0, 3).map((rfq) => {
               const status = RFQ_STATUSES[rfq.status.toUpperCase()] || RFQ_STATUSES.OPEN;
               return (
-                <div key={rfq.id} className="seller-rfq-item" style={{ borderBottom: '1px solid #F1F5F9', paddingBottom: '12px' }}>
+                <div key={rfq.id} className="seller-rfq-item">
                   <div style={{ width: 38, height: 38, background: '#EEF2FF', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4F46E5', flexShrink: 0 }}>
                     <Package size={18} />
                   </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div className="seller-rfq-product truncate" style={{ fontWeight: 600, color: '#0F172A' }}>{rfq.product}</div>
+                  <div className="seller-rfq-info">
+                    <div className="seller-rfq-product truncate">{rfq.product}</div>
                     <div className="seller-rfq-meta">
                       Qty: {rfq.quantity || 50} · {rfq.createdAt}
                     </div>
                   </div>
-                  <span className={`badge badge-${status.color}`} style={{ marginRight: '12px' }}>{status.label}</span>
-                  <button className="btn btn-secondary btn-sm" style={{ padding: '4px 12px', fontSize: '12px' }}>
-                    View
-                  </button>
+                  <div className="seller-rfq-actions">
+                    <span className={`badge badge-${status.color}`}>{status.label}</span>
+                    <button className="btn btn-secondary btn-sm" style={{ padding: '4px 12px', fontSize: '12px' }}>
+                      View
+                    </button>
+                  </div>
                 </div>
               );
             })}

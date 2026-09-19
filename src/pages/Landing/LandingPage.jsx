@@ -62,14 +62,16 @@ export default function LandingPage() {
                 <Search size={18} className="hero-search-icon" />
                 <input
                   type="text"
-                  placeholder="Search for products, suppliers, categories..."
+                  placeholder="Search products, suppliers..."
                   className="hero-search-input"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   id="hero-search-input"
+                  aria-label="Search products, suppliers, categories"
                 />
-                <button className="hero-search-btn" type="submit">
-                  Search
+                <button className="hero-search-btn" type="submit" aria-label="Search">
+                  <Search size={16} className="hero-search-btn-icon" />
+                  <span className="hero-search-btn-text">Search</span>
                 </button>
               </form>
             </div>
