@@ -79,7 +79,7 @@ export default function SellerDashboard({ activePage = 'dashboard' }) {
         </div>
 
         {/* Grid: Growth Chart on Left, Quick Actions Card on Right (matching Screen 8) */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 'var(--space-6)', marginBottom: 'var(--space-6)' }}>
+        <div className="seller-middle-grid">
           {/* Growth Chart */}
           <div className="seller-chart-card">
             <div className="seller-chart-header">

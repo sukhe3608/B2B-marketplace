@@ -834,9 +834,144 @@
 @media (max-width: 768px) {
   .consumer-wireframe-modal {
     flex-direction: column;
+    border-radius: 18px;
   }
   .consumer-graphic-column {
     display: none;
   }
+  .consumer-form-column {
+    padding: 24px 18px;
+  }
+  .seller-details-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .seller-steps-sidebar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 12px 14px;
+    background: #FFFFFF;
+    border-radius: 14px;
+    border: 1px solid #E2E8F0;
+  }
+  .seller-steps-sidebar-title {
+    display: none;
+  }
+  .seller-step-item {
+    flex-shrink: 0;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .seller-step-item span {
+    display: none;
+  }
+  .seller-step-item.active span {
+    display: inline;
+  }
+  .seller-brand-card {
+    display: none;
+  }
+  .seller-form-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  .seller-form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .seller-form-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .seller-form-actions button {
+    width: 100%;
+    justify-content: center;
+  }
 }
+
+@media (max-width: 640px) {
+  /* Screen 3 Mobile */
+  .role-page-wrapper {
+    padding: 16px 12px 32px;
+  }
+  .role-header-bar {
+    margin-bottom: 24px;
+  }
+  .role-main-title {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  .role-main-subtitle {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+  .role-wireframe-cards {
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 320px;
+  }
+  .role-wireframe-card {
+    width: 100%;
+    min-height: auto;
+    padding: 24px 20px 20px;
+    border-radius: 16px;
+  }
+  .role-avatar-circle {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 14px;
+  }
+  .role-card-heading {
+    font-size: 19px;
+  }
+  .role-card-subheading {
+    font-size: 12.5px;
+    margin-bottom: 18px;
+    min-height: auto;
+  }
+  .role-circle-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Screen 4 Mobile */
+  .onboarding-page-wrapper {
+    padding: 16px 12px 32px;
+  }
+  .onboarding-top-bar {
+    margin-bottom: 16px;
+  }
+  .wireframe-stepper-container {
+    gap: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+  .wireframe-step-text:not(.active) {
+    display: none;
+  }
+  .wireframe-step-line {
+    width: 18px;
+  }
+  .consumer-wireframe-title {
+    font-size: 20px;
+  }
+  .consumer-wireframe-sub {
+    font-size: 12.5px;
+    margin-bottom: 16px;
+  }
+  .consumer-form-column {
+    padding: 20px 14px;
+  }
+  .wireframe-field-input,
+  .category-dropdown-toggle {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+}
+
 

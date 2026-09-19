@@ -135,12 +135,52 @@
 }
 
 @media (max-width: 768px) {
-  .consumer-stats-row { grid-template-columns: 1fr; }
-  .consumer-explore-card { flex-direction: column; text-align: center; }
-  .consumer-explore-visual { display: none; }
-  .consumer-categories-grid { grid-template-columns: repeat(3, 1fr); }
+  .consumer-greeting {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .consumer-greeting-title {
+    font-size: 1.5rem;
+  }
+  .consumer-stats-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .consumer-explore-card {
+    padding: 20px 16px;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    border-radius: 16px;
+  }
+  .consumer-explore-title {
+    font-size: 1.25rem;
+  }
+  .consumer-explore-visual {
+    display: none;
+  }
+  .consumer-categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
 }
 
 @media (max-width: 480px) {
-  .consumer-categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .consumer-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .consumer-category-tile {
+    padding: 12px 8px;
+  }
+  .consumer-category-icon {
+    width: 46px;
+    height: 46px;
+  }
+  .consumer-rfq-item {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 4px;
+  }
 }

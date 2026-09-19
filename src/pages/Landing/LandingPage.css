@@ -500,66 +500,173 @@
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
-/* ── Responsive ───────────────────────────────────────────── */
+/* ── Responsive matching Screen 11 Mobile View ───────────────── */
 @media (max-width: 1024px) {
   .hero-banner-card {
     flex-direction: column;
+    border-radius: 20px;
   }
   .hero-banner-content {
-    padding: 40px 32px;
+    padding: 36px 28px;
   }
   .hero-banner-visual {
-    height: 320px;
+    height: 280px;
     width: 100%;
   }
   .hero-banner-fade {
     width: 100%;
-    height: 90px;
-    background: linear-gradient(to bottom, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 40%, transparent 100%);
+    height: 80px;
+    background: linear-gradient(to bottom, #FFFFFF 0%, rgba(255, 255, 255, 0.85) 40%, transparent 100%);
     top: 0;
     left: 0;
     bottom: auto;
   }
   .trust-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
   .categories-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
   }
-  .cta-inner { flex-direction: column; text-align: center; padding: var(--space-10); }
+  .cta-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-8);
+  }
 }
 
 @media (max-width: 768px) {
-  .hero-section { padding: var(--space-6) 0; }
-  .hiw-steps { grid-template-columns: 1fr; gap: var(--space-6); }
-  .hiw-step-connector { display: none; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-section {
+    padding: 16px 0 24px;
+  }
+  .hero-banner-content {
+    padding: 28px 20px 24px;
+  }
+  .hero-banner-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+  .trust-stats-section {
+    padding: 16px 0 24px;
+  }
+  .categories-section {
+    padding: 24px 0;
+  }
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .category-card {
+    padding: 16px 12px;
+  }
+  .hiw-steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .hiw-step-connector {
+    display: none;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
-  .hero-banner-title {
-    font-size: 1.85rem;
-  }
-  .hero-banner-search {
-    flex-direction: column;
+  .hero-banner-card {
     border-radius: 18px;
-    padding: 10px 12px;
-    gap: 8px;
+    margin: 0 4px;
+  }
+  .hero-banner-content {
+    padding: 24px 16px 20px;
+  }
+  .hero-banner-title {
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .hero-banner-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin-bottom: 18px;
+  }
+  /* Screen 11 Single-row mobile search bar */
+  .hero-banner-search {
+    flex-direction: row;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 4px 6px 4px 14px;
+    gap: 6px;
+    max-width: 100%;
+  }
+  .hero-search-icon {
+    margin-right: 6px;
+  }
+  .hero-search-input {
+    font-size: 13px;
   }
   .hero-search-btn {
-    width: 100%;
-    border-radius: 12px;
+    padding: 8px 18px;
+    font-size: 13px;
+    border-radius: 9999px;
+    flex-shrink: 0;
+  }
+  .hero-banner-visual {
+    height: 220px;
   }
   .hero-verified-badge {
-    left: 16px;
-    bottom: 16px;
-    padding: 8px 14px;
+    left: 14px;
+    bottom: 14px;
+    padding: 6px 12px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+  .hero-verified-icon {
+    width: 26px;
+    height: 26px;
+  }
+  .hero-verified-title {
+    font-size: 12px;
+  }
+  .hero-verified-sub {
+    font-size: 10px;
+  }
+  .trust-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .trust-stat-card {
+    padding: 12px 10px;
+    gap: 10px;
+    border-radius: 14px;
+  }
+  .trust-stat-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+  .trust-stat-number {
+    font-size: 1.1rem;
+  }
+  .trust-stat-label {
+    font-size: 0.72rem;
+  }
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-banner-title {
+    font-size: 1.4rem;
   }
   .trust-stats-grid {
     grid-template-columns: 1fr;
   }
-  .categories-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-search-btn {
+    padding: 8px 12px;
+    font-size: 12px;
   }
 }
+
