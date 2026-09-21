@@ -1,0 +1,383 @@
+/* ============================================================
+   Screen 12: Design System & UI Elements Wireframe Styles
+   ============================================================ */
+
+.design-system-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 10% 20%, #F1F5F9 0%, #F8FAFC 100%);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.design-system-container {
+  max-width: 860px;
+  width: 100%;
+}
+
+.design-system-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4F46E5;
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.design-system-back-link:hover {
+  color: #3730A3;
+  text-decoration: underline;
+}
+
+.design-system-wireframe-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 15px 40px -10px rgba(15, 23, 42, 0.06);
+  padding: 40px 48px;
+}
+
+.ds-card-header {
+  border-bottom: 1px solid #F1F5F9;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.ds-card-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.ds-card-sub {
+  font-size: 14px;
+  color: #64748B;
+}
+
+.ds-section {
+  margin-bottom: 32px;
+}
+
+.ds-section-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 16px;
+}
+
+/* Colors */
+.ds-colors-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.ds-color-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #F8FAFC;
+  border: 1px solid #EEF2F6;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.ds-color-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.ds-color-swatch-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.ds-color-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-color-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.ds-color-hex {
+  font-size: 11.5px;
+  color: #64748B;
+  font-family: monospace;
+}
+
+/* Grid 2 */
+.ds-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* Typography */
+.ds-typography-block {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+}
+
+.ds-font-preview-name {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+}
+
+.ds-type-scales {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ds-type-scale-item {
+  font-size: 12.5px;
+  color: #64748B;
+}
+
+.ds-scale-label {
+  display: inline-block;
+  width: 70px;
+  color: #94A3B8;
+}
+
+.ds-scale-spec {
+  font-weight: 600;
+  color: #1E293B;
+}
+
+/* Buttons */
+.ds-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ds-btn {
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.ds-btn-primary {
+  background: #4F46E5;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.ds-btn-primary:hover {
+  background: #4338CA;
+}
+
+.ds-btn-secondary {
+  background: #FFFFFF;
+  color: #4F46E5;
+  border: 1.5px solid #E0E7FF;
+}
+
+.ds-btn-secondary:hover {
+  background: #EEF2FF;
+}
+
+.ds-btn-text {
+  background: transparent;
+  color: #4F46E5;
+  padding: 10px 14px;
+}
+
+.ds-btn-text:hover {
+  text-decoration: underline;
+}
+
+/* Form Elements */
+.ds-forms-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.ds-input-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748B;
+  margin-bottom: 6px;
+}
+
+.ds-input-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.ds-input-field {
+  border: none;
+  outline: none;
+  font-size: 13.5px;
+  color: #1E293B;
+  width: 100%;
+}
+
+.ds-select-text {
+  font-size: 13.5px;
+  color: #1E293B;
+}
+
+.ds-input-arrow {
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+/* Switch Toggle */
+.ds-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.ds-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ds-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CBD5E1;
+  transition: 0.3s;
+  border-radius: 26px;
+}
+
+.ds-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.ds-switch input:checked + .ds-slider {
+  background-color: #4F46E5;
+}
+
+.ds-switch input:checked + .ds-slider:before {
+  transform: translateX(22px);
+}
+
+/* Checkbox and Radio */
+.ds-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.ds-checkbox-label,
+.ds-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.ds-checkbox-label input,
+.ds-radio-label input {
+  accent-color: #4F46E5;
+  width: 16px;
+  height: 16px;
+}
+
+/* Icons Row */
+.ds-icons-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ds-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748B;
+  background: #F8FAFC;
+  border: 1px solid #EEF2F6;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.ds-icon-box:hover,
+.ds-icon-box.active {
+  color: #4F46E5;
+  background: #EEF2FF;
+  border-color: #C7D2FE;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .design-system-wireframe-card {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+  .ds-colors-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ds-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .ds-forms-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .ds-icons-row {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}

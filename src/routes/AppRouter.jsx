@@ -15,13 +15,26 @@ import RoleSelectPage from '../pages/Onboarding/RoleSelectPage';
 import ConsumerDetailsPage from '../pages/Onboarding/ConsumerDetailsPage';
 import SellerDetailsPage from '../pages/Onboarding/SellerDetailsPage';
 
-// Consumer dashboard
+// Consumer pages
 import ConsumerDashboard from '../pages/Consumer/Dashboard';
+import ConsumerRFQs from '../pages/Consumer/ConsumerRFQs';
+import ConsumerSuppliers from '../pages/Consumer/ConsumerSuppliers';
+import ConsumerMessages from '../pages/Consumer/ConsumerMessages';
+import ConsumerProfile from '../pages/Consumer/ConsumerProfile';
+import ConsumerSettings from '../pages/Consumer/ConsumerSettings';
 
-// Seller dashboard
+// Seller pages
 import SellerDashboard from '../pages/Seller/Dashboard';
 import VerificationPage from '../pages/Seller/VerificationPage';
 import LimitedDashboard from '../pages/Seller/LimitedDashboard';
+import SellerProducts from '../pages/Seller/SellerProducts';
+import SellerRFQs from '../pages/Seller/SellerRFQs';
+import SellerOrders from '../pages/Seller/SellerOrders';
+import SellerCompanyProfile from '../pages/Seller/SellerCompanyProfile';
+import SellerSettings from '../pages/Seller/SellerSettings';
+
+// Screen 12 Design System Showcase
+import DesignSystemPage from '../pages/DesignSystem/DesignSystemPage';
 
 export default function AppRouter() {
   return (
@@ -90,7 +103,7 @@ export default function AppRouter() {
           path="/consumer/rfqs"
           element={
             <RoleBasedRoute allowedRole="consumer">
-              <ConsumerDashboard activePage="rfqs" />
+              <ConsumerRFQs />
             </RoleBasedRoute>
           }
         />
@@ -99,7 +112,7 @@ export default function AppRouter() {
           path="/consumer/suppliers"
           element={
             <RoleBasedRoute allowedRole="consumer">
-              <ConsumerDashboard activePage="suppliers" />
+              <ConsumerSuppliers />
             </RoleBasedRoute>
           }
         />
@@ -108,7 +121,7 @@ export default function AppRouter() {
           path="/consumer/messages"
           element={
             <RoleBasedRoute allowedRole="consumer">
-              <ConsumerDashboard activePage="messages" />
+              <ConsumerMessages />
             </RoleBasedRoute>
           }
         />
@@ -117,7 +130,7 @@ export default function AppRouter() {
           path="/consumer/profile"
           element={
             <RoleBasedRoute allowedRole="consumer">
-              <ConsumerDashboard activePage="profile" />
+              <ConsumerProfile />
             </RoleBasedRoute>
           }
         />
@@ -126,7 +139,7 @@ export default function AppRouter() {
           path="/consumer/settings"
           element={
             <RoleBasedRoute allowedRole="consumer">
-              <ConsumerDashboard activePage="settings" />
+              <ConsumerSettings />
             </RoleBasedRoute>
           }
         />
@@ -163,7 +176,7 @@ export default function AppRouter() {
           path="/seller/products"
           element={
             <RoleBasedRoute allowedRole="seller">
-              <SellerDashboard activePage="products" />
+              <SellerProducts />
             </RoleBasedRoute>
           }
         />
@@ -172,7 +185,7 @@ export default function AppRouter() {
           path="/seller/rfqs"
           element={
             <RoleBasedRoute allowedRole="seller">
-              <SellerDashboard activePage="rfqs" />
+              <SellerRFQs />
             </RoleBasedRoute>
           }
         />
@@ -181,7 +194,7 @@ export default function AppRouter() {
           path="/seller/orders"
           element={
             <RoleBasedRoute allowedRole="seller">
-              <SellerDashboard activePage="orders" />
+              <SellerOrders />
             </RoleBasedRoute>
           }
         />
@@ -190,7 +203,7 @@ export default function AppRouter() {
           path="/seller/company-profile"
           element={
             <RoleBasedRoute allowedRole="seller">
-              <SellerDashboard activePage="company" />
+              <SellerCompanyProfile />
             </RoleBasedRoute>
           }
         />
@@ -199,10 +212,13 @@ export default function AppRouter() {
           path="/seller/settings"
           element={
             <RoleBasedRoute allowedRole="seller">
-              <SellerDashboard activePage="settings" />
+              <SellerSettings />
             </RoleBasedRoute>
           }
         />
+
+        {/* ── Screen 12 Design System Showcase ───────────────── */}
+        <Route path="/design-system" element={<DesignSystemPage />} />
 
         {/* ── Catch-all ──────────────────────────────────────── */}
         <Route path="*" element={<Navigate to="/" replace />} />
