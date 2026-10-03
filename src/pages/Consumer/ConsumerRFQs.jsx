@@ -7,7 +7,9 @@ import {
   FileText, Plus, Search, Filter, Calendar, DollarSign,
   Package, ChevronRight, CheckCircle2, Clock, X, MessageSquare, ExternalLink
 } from 'lucide-react';
+import { useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton, SkeletonCard, SkeletonPageHeader } from '../../components/common';
 import { CATEGORIES, MOCK_RFQS, RFQ_STATUSES } from '../../utils/constants';
 import './ConsumerPages.css';
 
@@ -16,6 +18,7 @@ export default function ConsumerRFQs() {
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  const [isLoading] = useSimulatedLoading(450);
 
   // New RFQ Form State
   const [formData, setFormData] = useState({
@@ -97,7 +100,26 @@ export default function ConsumerRFQs() {
 
         {/* RFQ List */}
         <div className="rfq-cards-grid">
-          {filteredRfqs.length > 0 ? (
+          {isLoading ? (
+            Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="card rfq-manage-card" style={{ padding: '24px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 14 }}>
+                  <Skeleton variant="rounded" width={80} height={22} />
+                  <Skeleton variant="rounded" width={65} height={20} />
+                </div>
+                <Skeleton variant="rounded" width="70%" height={22} style={{ marginBottom: 16 }} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16 }}>
+                  <Skeleton variant="text" width="50%" height={14} />
+                  <Skeleton variant="text" width="60%" height={14} />
+                  <Skeleton variant="text" width="40%" height={14} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 14, borderTop: '1px solid #F1F5F9' }}>
+                  <Skeleton variant="rounded" width={110} height={16} />
+                  <Skeleton variant="rounded" width={95} height={32} />
+                </div>
+              </div>
+            ))
+          ) : filteredRfqs.length > 0 ? (
             filteredRfqs.map((rfq) => {
               const status = RFQ_STATUSES[rfq.status.toUpperCase()] || RFQ_STATUSES.OPEN;
               return (
@@ -138,6 +160,7 @@ export default function ConsumerRFQs() {
             })
           ) : (
             <div className="card empty-state-card">
+
               <FileText size={44} className="empty-state-icon" />
               <h3>No requirements found</h3>
               <p>Try clearing filters or post a new request for quotation to suppliers.</p>

@@ -8,6 +8,7 @@ import {
   Home, Search, Filter, Bell, Package, ShieldCheck,
   Check, ChevronDown, Copy, ArrowLeft
 } from 'lucide-react';
+import { Skeleton, SkeletonText, SkeletonStatCard } from '../../components/common';
 import './DesignSystemPage.css';
 
 export default function DesignSystemPage() {
@@ -15,6 +16,7 @@ export default function DesignSystemPage() {
   const [checkboxChecked, setCheckboxChecked] = useState(true);
   const [radioSelected, setRadioSelected] = useState('radio1');
   const [copiedHex, setCopiedHex] = useState(null);
+  const [skeletonActive, setSkeletonActive] = useState(true);
 
   const colors = [
     { label: 'Primary', hex: '#6366F1', bg: '#6366F1' },
@@ -180,6 +182,108 @@ export default function DesignSystemPage() {
               </div>
               <div className="ds-icon-box" title="Verified Security">
                 <ShieldCheck size={22} />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 5: Skeleton Loaders & Shimmer States */}
+          <div className="ds-section ds-skeleton-section">
+            <div className="ds-skeleton-header-row">
+              <div>
+                <h3 className="ds-section-label" style={{ marginBottom: 4 }}>Skeleton Loaders & Shimmer States</h3>
+                <p className="ds-card-sub">Used across dashboards, catalog tables, lists, and cards during asynchronous data fetching.</p>
+              </div>
+              <div className="ds-skeleton-toggle-wrap">
+                <span className="ds-toggle-tag">Preview Skeleton</span>
+                <label className="ds-switch">
+                  <input
+                    type="checkbox"
+                    checked={skeletonActive}
+                    onChange={() => setSkeletonActive(!skeletonActive)}
+                  />
+                  <span className="ds-slider round"></span>
+                </label>
+              </div>
+            </div>
+
+            {/* Atomic Skeleton Tokens */}
+            <div className="ds-skeleton-tokens-grid">
+              <div className="ds-skeleton-token-box">
+                <span className="ds-skeleton-token-label">Text Lines</span>
+                {skeletonActive ? (
+                  <SkeletonText lines={3} widths={['100%', '80%', '60%']} />
+                ) : (
+                  <div>
+                    <p style={{ margin: 0, fontWeight: 600, fontSize: 14 }}>Industrial Ball Bearings 6204-2RS</p>
+                    <p style={{ margin: '4px 0 0 0', fontSize: 13, color: '#64748B' }}>High precision chrome steel with nitrile seals</p>
+                    <p style={{ margin: '4px 0 0 0', fontSize: 12, color: '#94A3B8' }}>MOQ: 100 units · ₹45/unit</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="ds-skeleton-token-box">
+                <span className="ds-skeleton-token-label">Avatars & Circular</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  {skeletonActive ? (
+                    <>
+                      <Skeleton variant="circular" width={44} height={44} />
+                      <Skeleton variant="circular" width={36} height={36} />
+                      <Skeleton variant="circular" width={28} height={28} />
+                    </>
+                  ) : (
+                    <>
+                      <div className="ds-demo-avatar" style={{ width: 44, height: 44 }}>TL</div>
+                      <div className="ds-demo-avatar" style={{ width: 36, height: 36 }}>AB</div>
+                      <div className="ds-demo-avatar" style={{ width: 28, height: 28 }}>IN</div>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              <div className="ds-skeleton-token-box">
+                <span className="ds-skeleton-token-label">Badges & Pills</span>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  {skeletonActive ? (
+                    <>
+                      <Skeleton variant="rounded" width={80} height={24} />
+                      <Skeleton variant="rounded" width={65} height={24} />
+                      <Skeleton variant="rounded" width={90} height={24} />
+                    </>
+                  ) : (
+                    <>
+                      <span className="badge badge-success">Verified</span>
+                      <span className="badge badge-primary">Active RFQ</span>
+                      <span className="badge badge-warning">Under Review</span>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Composite Stat Card Skeleton Showcase */}
+            <div style={{ marginTop: 20 }}>
+              <span className="ds-skeleton-token-label" style={{ display: 'block', marginBottom: 12 }}>Composite Component Skeletons</span>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+                {skeletonActive ? (
+                  <SkeletonStatCard count={2} />
+                ) : (
+                  <>
+                    <div className="card stat-card" style={{ padding: 18, border: '1px solid #EEF2F6' }}>
+                      <div className="stat-card-icon primary"><Package size={20} /></div>
+                      <div>
+                        <div className="stat-card-value">1,482</div>
+                        <div className="stat-card-label">Total Verified Products</div>
+                      </div>
+                    </div>
+                    <div className="card stat-card" style={{ padding: 18, border: '1px solid #EEF2F6' }}>
+                      <div className="stat-card-icon secondary"><ShieldCheck size={20} /></div>
+                      <div>
+                        <div className="stat-card-value">99.4%</div>
+                        <div className="stat-card-label">GST Compliance Score</div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

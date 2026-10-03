@@ -5,7 +5,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
-import { useAuth } from '../../hooks';
+import { useAuth, useSimulatedLoading } from '../../hooks';
+import { Skeleton } from '../../components/common';
 import './SellerPages.css';
 
 const VERIFICATION_STEPS = [
@@ -17,6 +18,7 @@ const VERIFICATION_STEPS = [
 export default function VerificationPage() {
   const { setVerificationStatus } = useAuth();
   const [steps, setSteps] = useState(VERIFICATION_STEPS);
+  const [isLoading] = useSimulatedLoading(400);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,20 +48,37 @@ export default function VerificationPage() {
 
       {/* Screen 7 Centered Card */}
       <div className="verification-wireframe-card animate-fade-in">
-        {/* Concentric Rings with Shield */}
-        <div className="concentric-shield-container">
-          <div className="shield-ring-outer"></div>
-          <div className="shield-ring-middle"></div>
-          <div className="shield-center-badge">
-            <ShieldCheck size={36} color="#FFFFFF" strokeWidth={2.3} />
+        {isLoading ? (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', gap: 16 }}>
+            <Skeleton variant="circular" width={110} height={110} style={{ margin: '16px 0' }} />
+            <Skeleton variant="rounded" width={240} height={28} />
+            <Skeleton variant="text" width={280} height={14} />
+            <Skeleton variant="text" width={200} height={14} />
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 12, marginTop: 20 }}>
+              <Skeleton variant="rounded" width="100%" height={48} />
+              <Skeleton variant="rounded" width="100%" height={48} />
+              <Skeleton variant="rounded" width="100%" height={48} />
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            {/* Concentric Rings with Shield */}
+            <div className="concentric-shield-container">
+              <div className="shield-ring-outer"></div>
+              <div className="shield-ring-middle"></div>
+              <div className="shield-center-badge">
+                <ShieldCheck size={36} color="#FFFFFF" strokeWidth={2.3} />
+              </div>
+            </div>
 
-        <h1 className="verification-card-title">Verification in Progress</h1>
-        <p className="verification-card-subtitle">
-          We're validating your GST, PAN and business details.<br />
-          This usually takes 1-2 hours.
-        </p>
+            <h1 className="verification-card-title">Verification in Progress</h1>
+            <p className="verification-card-subtitle">
+              We're validating your GST, PAN and business details.<br />
+              This usually takes 1-2 hours.
+            </p>
+          </>
+        )}
+
 
         {/* Status Checklist matching Screen 7 */}
         <div className="verification-wireframe-checklist">

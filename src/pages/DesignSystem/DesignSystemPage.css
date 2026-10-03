@@ -381,3 +381,74 @@
     flex-wrap: wrap;
   }
 }
+
+/* ── Section 5: Skeleton Showcase ────────────────────────── */
+.ds-skeleton-section {
+  border-top: 1px solid #F1F5F9;
+  padding-top: 32px;
+}
+
+.ds-skeleton-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ds-skeleton-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #F8FAFC;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid #E2E8F0;
+}
+
+.ds-toggle-tag {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.ds-skeleton-tokens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .ds-skeleton-tokens-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ds-skeleton-token-box {
+  background: #F8FAFC;
+  border: 1px solid #EEF2F6;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.ds-skeleton-token-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.ds-demo-avatar {
+  border-radius: 50%;
+  background: #EEF2FF;
+  color: #4F46E5;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

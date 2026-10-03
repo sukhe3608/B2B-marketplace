@@ -6,14 +6,16 @@ import {
   Building2, ShieldCheck, MapPin, Check, Save, FileText,
   Award, Globe, Upload, Phone, Mail, Users
 } from 'lucide-react';
+import { useAuth, useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
-import { useAuth } from '../../hooks';
+import { Skeleton, SkeletonProfile } from '../../components/common';
 import { BUSINESS_TYPES, INDIAN_STATES, EMPLOYEE_RANGES } from '../../utils/constants';
 import './SellerPages.css';
 
 export default function SellerCompanyProfile() {
   const { user } = useAuth();
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [isLoading] = useSimulatedLoading(400);
 
   const [formData, setFormData] = useState({
     companyName: user?.companyName || 'ABC Precision Industries Pvt. Ltd.',
@@ -55,7 +57,11 @@ export default function SellerCompanyProfile() {
           )}
         </div>
 
-        <div className="profile-sections-grid">
+        {isLoading ? (
+          <SkeletonProfile />
+        ) : (
+          <div className="profile-sections-grid">
+
           {/* Main Form */}
           <div className="profile-main-col">
             <div className="card profile-card">
@@ -237,6 +243,7 @@ export default function SellerCompanyProfile() {
             </div>
           </div>
         </div>
+        )}
       </div>
     </DashboardShell>
   );

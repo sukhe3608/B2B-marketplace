@@ -1,19 +1,22 @@
 /* ============================================================
    TradeLink — Consumer Dashboard (Screen 5)
    ============================================================ */
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FileText, Heart, MessageSquare, ArrowRight, Search,
   ChevronRight, RefreshCw, Package, Factory, Wrench
 } from 'lucide-react';
-import { useAuth } from '../../hooks';
+import { useAuth, useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
 import CategoryIcon from '../../components/common/CategoryIcon';
+import { Skeleton, SkeletonStatCard, SkeletonListItem } from '../../components/common';
 import { CATEGORIES, MOCK_CONSUMER_STATS, MOCK_RFQS, RFQ_STATUSES } from '../../utils/constants';
 import './ConsumerPages.css';
 
 export default function ConsumerDashboard({ activePage = 'dashboard' }) {
   const { user } = useAuth();
+  const [isLoading, reload] = useSimulatedLoading(500);
 
   if (activePage !== 'dashboard') {
     return (
@@ -38,113 +41,166 @@ export default function ConsumerDashboard({ activePage = 'dashboard' }) {
         {/* Greeting */}
         <div className="consumer-greeting">
           <div>
-            <h1 className="consumer-greeting-title">
-              Hello, {user?.name?.split(' ')[0] || 'User'}!
-            </h1>
-            <p className="consumer-greeting-subtitle">
-              Find the best suppliers and request quotes for your business needs.
-            </p>
+            {isLoading ? (
+              <>
+                <Skeleton variant="rounded" width={220} height={32} style={{ marginBottom: 8 }} />
+                <Skeleton variant="text" width={380} height={16} />
+              </>
+            ) : (
+              <>
+                <h1 className="consumer-greeting-title">
+                  Hello, {user?.name?.split(' ')[0] || 'User'}!
+                </h1>
+                <p className="consumer-greeting-subtitle">
+                  Find the best suppliers and request quotes for your business needs.
+                </p>
+              </>
+            )}
           </div>
-          <button className="btn btn-ghost btn-sm">
-            <RefreshCw size={14} /> Refresh
+          <button
+            className="btn btn-ghost btn-sm"
+            onClick={() => reload(600)}
+            disabled={isLoading}
+            title="Refresh dashboard data"
+          >
+            <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
+            {isLoading ? 'Loading...' : 'Refresh'}
           </button>
         </div>
 
         {/* Quick Stats */}
         <div className="consumer-stats-row stagger-children">
-          <div className="card stat-card card-hover">
-            <div className="stat-card-icon primary"><FileText size={22} /></div>
-            <div>
-              <div className="stat-card-value">{MOCK_CONSUMER_STATS.activeRFQs}</div>
-              <div className="stat-card-label">Active RFQs</div>
-            </div>
-          </div>
-          <div className="card stat-card card-hover">
-            <div className="stat-card-icon accent"><Heart size={22} /></div>
-            <div>
-              <div className="stat-card-value">{MOCK_CONSUMER_STATS.savedSuppliers}</div>
-              <div className="stat-card-label">Saved Suppliers</div>
-            </div>
-          </div>
-          <div className="card stat-card card-hover">
-            <div className="stat-card-icon secondary"><MessageSquare size={22} /></div>
-            <div>
-              <div className="stat-card-value">{MOCK_CONSUMER_STATS.messages}</div>
-              <div className="stat-card-label">Messages</div>
-            </div>
-          </div>
+          {isLoading ? (
+            <SkeletonStatCard count={3} />
+          ) : (
+            <>
+              <div className="card stat-card card-hover">
+                <div className="stat-card-icon primary"><FileText size={22} /></div>
+                <div>
+                  <div className="stat-card-value">{MOCK_CONSUMER_STATS.activeRFQs}</div>
+                  <div className="stat-card-label">Active RFQs</div>
+                </div>
+              </div>
+              <div className="card stat-card card-hover">
+                <div className="stat-card-icon accent"><Heart size={22} /></div>
+                <div>
+                  <div className="stat-card-value">{MOCK_CONSUMER_STATS.savedSuppliers}</div>
+                  <div className="stat-card-label">Saved Suppliers</div>
+                </div>
+              </div>
+              <div className="card stat-card card-hover">
+                <div className="stat-card-icon secondary"><MessageSquare size={22} /></div>
+                <div>
+                  <div className="stat-card-value">{MOCK_CONSUMER_STATS.messages}</div>
+                  <div className="stat-card-label">Messages</div>
+                </div>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Explore Categories CTA */}
-        <div className="consumer-explore-card">
-          <div className="consumer-explore-content">
-            <h2 className="consumer-explore-title">Explore top categories</h2>
-            <p className="consumer-explore-desc">
-              Discover verified suppliers across a wide range of products
-            </p>
-            <button className="btn btn-primary btn-sm">
-              Browse Categories <ArrowRight size={14} />
-            </button>
+        {isLoading ? (
+          <div className="card" style={{ padding: 'var(--space-6)', borderRadius: 'var(--radius-xl)' }}>
+            <Skeleton variant="rounded" width={240} height={24} style={{ marginBottom: 12 }} />
+            <Skeleton variant="text" width={360} height={14} style={{ marginBottom: 16 }} />
+            <Skeleton variant="rounded" width={160} height={38} />
           </div>
-          <div className="consumer-explore-visual">
-            <div className="consumer-visual-badge">
-              <Package size={26} />
+        ) : (
+          <div className="consumer-explore-card">
+            <div className="consumer-explore-content">
+              <h2 className="consumer-explore-title">Explore top categories</h2>
+              <p className="consumer-explore-desc">
+                Discover verified suppliers across a wide range of products
+              </p>
+              <button className="btn btn-primary btn-sm">
+                Browse Categories <ArrowRight size={14} />
+              </button>
             </div>
-            <div className="consumer-visual-badge">
-              <Factory size={26} />
-            </div>
-            <div className="consumer-visual-badge">
-              <Wrench size={26} />
+            <div className="consumer-explore-visual">
+              <div className="consumer-visual-badge">
+                <Package size={26} />
+              </div>
+              <div className="consumer-visual-badge">
+                <Factory size={26} />
+              </div>
+              <div className="consumer-visual-badge">
+                <Wrench size={26} />
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Recommended Categories */}
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)' }}>
-            <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
-              Recommended Categories
-            </h2>
+            {isLoading ? (
+              <Skeleton variant="rounded" width={200} height={22} />
+            ) : (
+              <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>
+                Recommended Categories
+              </h2>
+            )}
             <a href="#" style={{ fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-semibold)', display: 'flex', alignItems: 'center', gap: '4px' }}>
               View All <ChevronRight size={14} />
             </a>
           </div>
+
           <div className="consumer-categories-grid stagger-children">
-            {CATEGORIES.slice(0, 6).map((cat) => (
-              <a href="#" className="consumer-category-tile card card-hover card-interactive" key={cat.id}>
-                <div className="consumer-category-icon" style={{ background: `${cat.color}15`, color: cat.color }}>
-                  <CategoryIcon id={cat.id} size={26} />
+            {isLoading ? (
+              Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="consumer-category-tile card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, padding: 18 }}>
+                  <Skeleton variant="circular" width={48} height={48} />
+                  <Skeleton variant="text" width={75} height={13} style={{ margin: 0 }} />
                 </div>
-                <span className="consumer-category-label">{cat.label}</span>
-              </a>
-            ))}
+              ))
+            ) : (
+              CATEGORIES.slice(0, 6).map((cat) => (
+                <a href="#" className="consumer-category-tile card card-hover card-interactive" key={cat.id}>
+                  <div className="consumer-category-icon" style={{ background: `${cat.color}15`, color: cat.color }}>
+                    <CategoryIcon id={cat.id} size={26} />
+                  </div>
+                  <span className="consumer-category-label">{cat.label}</span>
+                </a>
+              ))
+            )}
           </div>
         </div>
 
         {/* Recent RFQs */}
         <div className="card" style={{ padding: 'var(--space-6)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)' }}>
-            <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>My Recent RFQs</h2>
+            {isLoading ? (
+              <Skeleton variant="rounded" width={160} height={22} />
+            ) : (
+              <h2 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>My Recent RFQs</h2>
+            )}
             <Link to="/consumer/rfqs" className="btn btn-text btn-sm">View All <ChevronRight size={14} /></Link>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-            {MOCK_RFQS.slice(0, 3).map((rfq) => {
-              const status = RFQ_STATUSES[rfq.status.toUpperCase()] || RFQ_STATUSES.OPEN;
-              return (
-                <div key={rfq.id} className="consumer-rfq-item">
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-semibold)' }}>{rfq.product}</div>
-                    <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-tertiary)', marginTop: '2px' }}>
-                      {rfq.quantity} · {rfq.budget} · {rfq.quotesReceived} quotes
+
+          {isLoading ? (
+            <SkeletonListItem count={3} showIcon={true} />
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              {MOCK_RFQS.slice(0, 3).map((rfq) => {
+                const status = RFQ_STATUSES[rfq.status.toUpperCase()] || RFQ_STATUSES.OPEN;
+                return (
+                  <div key={rfq.id} className="consumer-rfq-item">
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-semibold)' }}>{rfq.product}</div>
+                      <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-tertiary)', marginTop: '2px' }}>
+                        {rfq.quantity} · {rfq.budget} · {rfq.quotesReceived} quotes
+                      </div>
                     </div>
+                    <span className={`badge badge-${status.color}`}>{status.label}</span>
                   </div>
-                  <span className={`badge badge-${status.color}`}>{status.label}</span>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </DashboardShell>
   );
 }
+

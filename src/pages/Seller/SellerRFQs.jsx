@@ -7,7 +7,9 @@ import {
   FileText, Search, Send, Clock, MapPin, DollarSign,
   Package, CheckCircle2, User, X, ChevronRight, MessageSquare
 } from 'lucide-react';
+import { useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton, SkeletonCard } from '../../components/common';
 import { MOCK_RFQS, RFQ_STATUSES } from '../../utils/constants';
 import './SellerPages.css';
 
@@ -17,6 +19,7 @@ export default function SellerRFQs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [quoteModalRfq, setQuoteModalRfq] = useState(null);
   const [quoteSuccess, setQuoteSuccess] = useState(false);
+  const [isLoading] = useSimulatedLoading(450);
 
   // Quote Form
   const [quoteData, setQuoteData] = useState({
@@ -90,16 +93,38 @@ export default function SellerRFQs() {
 
         {/* RFQ Feed Grid */}
         <div className="rfq-cards-grid">
-          {filteredRfqs.map((rfq) => {
-            const status = RFQ_STATUSES[rfq.status.toUpperCase()] || RFQ_STATUSES.OPEN;
-            const isQuotedByMe = rfq.status === 'quoted';
-
-            return (
-              <div key={rfq.id} className="card rfq-manage-card">
-                <div className="rfq-card-top">
-                  <div className="rfq-category-pill">{rfq.category}</div>
-                  <span className={`badge badge-${status.color}`}>{status.label}</span>
+          {isLoading ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="card rfq-manage-card" style={{ padding: '24px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
+                  <Skeleton variant="rounded" width={85} height={20} />
+                  <Skeleton variant="rounded" width={60} height={20} />
                 </div>
+                <Skeleton variant="rounded" width="80%" height={22} style={{ marginBottom: 14 }} />
+                <Skeleton variant="rounded" width="100%" height={34} style={{ marginBottom: 14 }} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 16 }}>
+                  <Skeleton variant="text" width="60%" height={13} />
+                  <Skeleton variant="text" width="55%" height={13} />
+                  <Skeleton variant="text" width="45%" height={13} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 12, borderTop: '1px solid #F1F5F9' }}>
+                  <Skeleton variant="rounded" width={110} height={16} />
+                  <Skeleton variant="rounded" width={100} height={34} />
+                </div>
+              </div>
+            ))
+          ) : (
+            filteredRfqs.map((rfq) => {
+              const status = RFQ_STATUSES[rfq.status.toUpperCase()] || RFQ_STATUSES.OPEN;
+              const isQuotedByMe = rfq.status === 'quoted';
+
+              return (
+                <div key={rfq.id} className="card rfq-manage-card">
+                  <div className="rfq-card-top">
+                    <div className="rfq-category-pill">{rfq.category}</div>
+                    <span className={`badge badge-${status.color}`}>{status.label}</span>
+                  </div>
+
 
                 <h3 className="rfq-card-title">{rfq.product}</h3>
 

@@ -7,7 +7,9 @@ import {
   ShoppingCart, Search, Filter, Download, Eye, CheckCircle2,
   Clock, Truck, PackageCheck, AlertCircle, Building2, Calendar
 } from 'lucide-react';
+import { useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton, SkeletonTable } from '../../components/common';
 import { MOCK_SELLER_ORDERS } from '../../utils/constants';
 import './SellerPages.css';
 
@@ -15,6 +17,7 @@ export default function SellerOrders() {
   const [orders, setOrders] = useState(MOCK_SELLER_ORDERS);
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isLoading] = useSimulatedLoading(450);
 
   const filteredOrders = orders.filter((ord) => {
     const matchesTab = activeTab === 'all' || ord.status === activeTab;
@@ -87,71 +90,75 @@ export default function SellerOrders() {
 
         {/* Orders Table */}
         <div className="card table-container-card">
-          <div className="table-responsive">
-            <table className="custom-table">
-              <thead>
-                <tr>
-                  <th>Order ID & Date</th>
-                  <th>Buyer Company</th>
-                  <th>Product & Quantity</th>
-                  <th>Total Value</th>
-                  <th>Order Status</th>
-                  <th>Payment Escrow</th>
-                  <th style={{ textAlign: 'right' }}>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredOrders.length > 0 ? (
-                  filteredOrders.map((ord) => (
-                    <tr key={ord.id}>
-                      <td>
-                        <strong className="order-id-link">{ord.id}</strong>
-                        <div className="table-meta-sub">
-                          <Calendar size={12} /> {ord.orderDate}
-                        </div>
-                      </td>
-                      <td>
-                        <div className="table-buyer-name">{ord.buyerName}</div>
-                        <span className="table-meta-sub">{ord.buyerCity}</span>
-                      </td>
-                      <td>
-                        <div className="table-product-name">{ord.productName}</div>
-                        <span className="table-meta-sub">Qty: {ord.quantity} units @ {ord.unitPrice}</span>
-                      </td>
-                      <td>
-                        <strong className="table-price">{ord.totalAmount}</strong>
-                      </td>
-                      <td>
-                        {getStatusBadge(ord.status)}
-                      </td>
-                      <td>
-                        <span className={`payment-pill ${ord.paymentStatus.includes('Paid') ? 'paid' : ord.paymentStatus.includes('Released') ? 'released' : 'awaiting'}`}>
-                          {ord.paymentStatus}
-                        </span>
-                      </td>
-                      <td style={{ textAlign: 'right' }}>
-                        <div className="table-actions-cell">
-                          <button
-                            className="btn btn-secondary btn-sm"
-                            title="Download Tax Invoice"
-                            onClick={() => handleDownloadInvoice(ord.id)}
-                          >
-                            <Download size={13} /> Invoice
-                          </button>
-                        </div>
+          {isLoading ? (
+            <SkeletonTable rows={4} columns={7} />
+          ) : (
+            <div className="table-responsive">
+              <table className="custom-table">
+                <thead>
+                  <tr>
+                    <th>Order ID & Date</th>
+                    <th>Buyer Company</th>
+                    <th>Product & Quantity</th>
+                    <th>Total Value</th>
+                    <th>Order Status</th>
+                    <th>Payment Escrow</th>
+                    <th style={{ textAlign: 'right' }}>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredOrders.length > 0 ? (
+                    filteredOrders.map((ord) => (
+                      <tr key={ord.id}>
+                        <td>
+                          <strong className="order-id-link">{ord.id}</strong>
+                          <div className="table-meta-sub">
+                            <Calendar size={12} /> {ord.orderDate}
+                          </div>
+                        </td>
+                        <td>
+                          <div className="table-buyer-name">{ord.buyerName}</div>
+                          <span className="table-meta-sub">{ord.buyerCity}</span>
+                        </td>
+                        <td>
+                          <div className="table-product-name">{ord.productName}</div>
+                          <span className="table-meta-sub">Qty: {ord.quantity} units @ {ord.unitPrice}</span>
+                        </td>
+                        <td>
+                          <strong className="table-price">{ord.totalAmount}</strong>
+                        </td>
+                        <td>
+                          {getStatusBadge(ord.status)}
+                        </td>
+                        <td>
+                          <span className={`payment-pill ${ord.paymentStatus.includes('Paid') ? 'paid' : ord.paymentStatus.includes('Released') ? 'released' : 'awaiting'}`}>
+                            {ord.paymentStatus}
+                          </span>
+                        </td>
+                        <td style={{ textAlign: 'right' }}>
+                          <div className="table-actions-cell">
+                            <button
+                              className="btn btn-secondary btn-sm"
+                              title="Download Tax Invoice"
+                              onClick={() => handleDownloadInvoice(ord.id)}
+                            >
+                              <Download size={13} /> Invoice
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={7} className="text-center py-6">
+                        No orders matching the selected filter criteria.
                       </td>
                     </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={7} className="text-center py-6">
-                      No orders matching the selected filter criteria.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </DashboardShell>

@@ -7,13 +7,15 @@ import {
   User, Building2, MapPin, Mail, Phone, Plus, Check,
   Edit2, ShieldCheck, Tag, Save
 } from 'lucide-react';
+import { useAuth, useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
-import { useAuth } from '../../hooks';
+import { Skeleton, SkeletonProfile } from '../../components/common';
 import './ConsumerPages.css';
 
 export default function ConsumerProfile() {
   const { user } = useAuth();
   const [savedSuccess, setSavedSuccess] = useState(false);
+  const [isLoading] = useSimulatedLoading(400);
 
   const [formData, setFormData] = useState({
     name: user?.name || 'Rahul Sharma',
@@ -65,7 +67,11 @@ export default function ConsumerProfile() {
           )}
         </div>
 
-        <div className="profile-sections-grid">
+        {isLoading ? (
+          <SkeletonProfile />
+        ) : (
+          <div className="profile-sections-grid">
+
           {/* Left Column: Personal & Company Info */}
           <div className="profile-main-col">
             {/* Identity Card */}
@@ -216,6 +222,7 @@ export default function ConsumerProfile() {
             </div>
           </div>
         </div>
+        )}
       </div>
     </DashboardShell>
   );

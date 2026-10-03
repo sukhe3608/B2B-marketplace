@@ -194,3 +194,28 @@ export function useToast() {
 
   return { toasts, addToast, removeToast };
 }
+
+/**
+ * useSimulatedLoading — simulates realistic async data fetching with skeleton state
+ * @param {number} delay - initial skeleton display time in ms (default 450ms)
+ * @returns {[boolean, (customDelay?: number) => void, (loading: boolean) => void]}
+ */
+export function useSimulatedLoading(delay = 450) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  const reload = useCallback((customDelay = 600) => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, customDelay);
+  }, []);
+
+  return [isLoading, reload, setIsLoading];
+}

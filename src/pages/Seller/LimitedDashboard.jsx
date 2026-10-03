@@ -4,12 +4,14 @@
    ============================================================ */
 import { Link } from 'react-router-dom';
 import { Search, FileText, UserCheck, MessageSquare, ShieldAlert, CheckCircle2, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
-import { useAuth } from '../../hooks';
+import { useAuth, useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton } from '../../components/common';
 import './SellerPages.css';
 
 export default function LimitedDashboard() {
   const { user } = useAuth();
+  const [isLoading] = useSimulatedLoading(450);
 
   const availableFeatures = [
     'Browse products & suppliers',
@@ -28,36 +30,54 @@ export default function LimitedDashboard() {
     <DashboardShell role="seller">
       <div className="limited-dashboard animate-fade-in-up">
         {/* Top Warning Banner matching Screen 9 */}
-        <div className="limited-banner">
-          <div className="limited-banner-icon">
-            <ShieldAlert size={20} />
+        {isLoading ? (
+          <div className="card" style={{ padding: 20, marginBottom: 20, borderRadius: 16 }}>
+            <Skeleton variant="rounded" width="40%" height={22} style={{ marginBottom: 8 }} />
+            <Skeleton variant="text" width="70%" height={14} />
           </div>
-          <div>
-            <div className="limited-banner-title">
-              Your account is under verification
+        ) : (
+          <div className="limited-banner">
+            <div className="limited-banner-icon">
+              <ShieldAlert size={20} />
             </div>
-            <div className="limited-banner-desc">
-              You can browse products and explore the marketplace. Some features will be available after verification.
+            <div>
+              <div className="limited-banner-title">
+                Your account is under verification
+              </div>
+              <div className="limited-banner-desc">
+                You can browse products and explore the marketplace. Some features will be available after verification.
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Welcome Card matching Screen 9 */}
-        <div className="limited-welcome card">
-          <div>
-            <h1 className="limited-welcome-title">
-              Welcome, {user?.companyName || user?.name || 'ABC Traders'}!
-            </h1>
-            <p className="limited-welcome-desc">
-              Let's get your business verified to unlock all features.
-            </p>
+        {isLoading ? (
+          <div className="card" style={{ padding: 24, marginBottom: 24, borderRadius: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ flex: 1 }}>
+              <Skeleton variant="rounded" width={240} height={24} style={{ marginBottom: 8 }} />
+              <Skeleton variant="text" width={320} height={14} />
+            </div>
+            <Skeleton variant="rounded" width={140} height={42} />
           </div>
-          <Link to="/seller/verification" className="btn btn-primary limited-welcome-btn">
-            Verify Business <ArrowRight size={16} />
-          </Link>
-        </div>
+        ) : (
+          <div className="limited-welcome card">
+            <div>
+              <h1 className="limited-welcome-title">
+                Welcome, {user?.companyName || user?.name || 'ABC Traders'}!
+              </h1>
+              <p className="limited-welcome-desc">
+                Let's get your business verified to unlock all features.
+              </p>
+            </div>
+            <Link to="/seller/verification" className="btn btn-primary limited-welcome-btn">
+              Verify Business <ArrowRight size={16} />
+            </Link>
+          </div>
+        )}
 
         {/* Available vs Pending Features matching Screen 9 */}
+
         <div className="limited-features-grid">
           {/* Available Now */}
           <div className="card" style={{ padding: '24px' }}>

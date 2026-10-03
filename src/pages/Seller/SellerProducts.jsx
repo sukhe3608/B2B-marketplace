@@ -7,7 +7,9 @@ import {
   Package, Plus, Search, Filter, Edit3, Trash2, CheckCircle2,
   AlertCircle, Eye, MessageSquare, DollarSign, X, Tag
 } from 'lucide-react';
+import { useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton, SkeletonTable } from '../../components/common';
 import { CATEGORIES, MOCK_SELLER_PRODUCTS } from '../../utils/constants';
 import './SellerPages.css';
 
@@ -16,6 +18,7 @@ export default function SellerProducts() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [modalOpen, setModalOpen] = useState(false);
+  const [isLoading] = useSimulatedLoading(450);
 
   // New Product Form
   const [formData, setFormData] = useState({
@@ -100,81 +103,85 @@ export default function SellerProducts() {
 
         {/* Products Table */}
         <div className="card table-container-card">
-          <div className="table-responsive">
-            <table className="custom-table">
-              <thead>
-                <tr>
-                  <th>Product Details</th>
-                  <th>Category</th>
-                  <th>Unit Price</th>
-                  <th>Stock Status</th>
-                  <th>Buyer Views</th>
-                  <th>Inquiries</th>
-                  <th style={{ textAlign: 'right' }}>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredProducts.length > 0 ? (
-                  filteredProducts.map((p) => (
-                    <tr key={p.id}>
-                      <td>
-                        <div className="table-product-cell">
-                          <div className="table-product-thumb">
-                            <Package size={20} />
+          {isLoading ? (
+            <SkeletonTable rows={5} columns={7} />
+          ) : (
+            <div className="table-responsive">
+              <table className="custom-table">
+                <thead>
+                  <tr>
+                    <th>Product Details</th>
+                    <th>Category</th>
+                    <th>Unit Price</th>
+                    <th>Stock Status</th>
+                    <th>Buyer Views</th>
+                    <th>Inquiries</th>
+                    <th style={{ textAlign: 'right' }}>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredProducts.length > 0 ? (
+                    filteredProducts.map((p) => (
+                      <tr key={p.id}>
+                        <td>
+                          <div className="table-product-cell">
+                            <div className="table-product-thumb">
+                              <Package size={20} />
+                            </div>
+                            <div>
+                              <div className="table-product-name">{p.name}</div>
+                              <span className="table-product-sku">SKU: {p.id.toUpperCase()}</span>
+                            </div>
                           </div>
-                          <div>
-                            <div className="table-product-name">{p.name}</div>
-                            <span className="table-product-sku">SKU: {p.id.toUpperCase()}</span>
+                        </td>
+                        <td>
+                          <span className="badge badge-neutral">{p.category}</span>
+                        </td>
+                        <td>
+                          <strong className="table-price">{p.price}</strong>
+                        </td>
+                        <td>
+                          <span className={`badge ${p.stock === 'In Stock' ? 'badge-success' : 'badge-warning'}`}>
+                            {p.stock}
+                          </span>
+                        </td>
+                        <td>
+                          <div className="table-metric-cell">
+                            <Eye size={14} /> {p.views}
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="badge badge-neutral">{p.category}</span>
-                      </td>
-                      <td>
-                        <strong className="table-price">{p.price}</strong>
-                      </td>
-                      <td>
-                        <span className={`badge ${p.stock === 'In Stock' ? 'badge-success' : 'badge-warning'}`}>
-                          {p.stock}
-                        </span>
-                      </td>
-                      <td>
-                        <div className="table-metric-cell">
-                          <Eye size={14} /> {p.views}
-                        </div>
-                      </td>
-                      <td>
-                        <div className="table-metric-cell">
-                          <MessageSquare size={14} /> {p.inquiries}
-                        </div>
-                      </td>
-                      <td style={{ textAlign: 'right' }}>
-                        <div className="table-actions-cell">
-                          <button className="btn btn-ghost btn-icon btn-sm" title="Edit Product">
-                            <Edit3 size={15} />
-                          </button>
-                          <button
-                            className="btn btn-ghost btn-icon btn-sm text-error"
-                            title="Delete Product"
-                            onClick={() => handleDeleteProduct(p.id)}
-                          >
-                            <Trash2 size={15} />
-                          </button>
-                        </div>
+                        </td>
+                        <td>
+                          <div className="table-metric-cell">
+                            <MessageSquare size={14} /> {p.inquiries}
+                          </div>
+                        </td>
+                        <td style={{ textAlign: 'right' }}>
+                          <div className="table-actions-cell">
+                            <button className="btn btn-ghost btn-icon btn-sm" title="Edit Product">
+                              <Edit3 size={15} />
+                            </button>
+                            <button
+                              className="btn btn-ghost btn-icon btn-sm text-error"
+                              title="Delete Product"
+                              onClick={() => handleDeleteProduct(p.id)}
+                            >
+                              <Trash2 size={15} />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={7} className="text-center py-6">
+                        No products found. Click "Add New Product" to list your first item.
                       </td>
                     </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={7} className="text-center py-6">
-                      No products found. Click "Add New Product" to list your first item.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
 
         {/* Add Product Modal */}

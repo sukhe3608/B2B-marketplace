@@ -7,11 +7,14 @@ import {
   CreditCard, Users, Bell, Lock, Check, ShieldCheck,
   Smartphone, Mail, Save, AlertTriangle, KeyRound, Building
 } from 'lucide-react';
+import { useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton, SkeletonForm } from '../../components/common';
 import './SellerPages.css';
 
 export default function SellerSettings() {
   const [saveAlert, setSaveAlert] = useState(false);
+  const [isLoading] = useSimulatedLoading(400);
 
   const [bankDetails, setBankDetails] = useState({
     accountName: 'ABC Precision Industries Pvt Ltd',
@@ -54,7 +57,14 @@ export default function SellerSettings() {
           )}
         </div>
 
-        <div className="settings-cards-list">
+        {isLoading ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <SkeletonForm fields={4} />
+            <SkeletonForm fields={3} />
+          </div>
+        ) : (
+          <div className="settings-cards-list">
+
           {/* Bank Account for Escrow Settlement */}
           <div className="card settings-section-card">
             <div className="settings-section-header">
@@ -193,6 +203,7 @@ export default function SellerSettings() {
             </div>
           </div>
         </div>
+        )}
       </div>
     </DashboardShell>
   );

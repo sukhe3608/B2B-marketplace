@@ -7,7 +7,9 @@ import {
   Bell, Lock, Shield, Smartphone, Mail, Check,
   AlertTriangle, Save, KeyRound
 } from 'lucide-react';
+import { useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton, SkeletonForm } from '../../components/common';
 import './ConsumerPages.css';
 
 export default function ConsumerSettings() {
@@ -20,6 +22,7 @@ export default function ConsumerSettings() {
 
   const [passwordSaved, setPasswordSaved] = useState(false);
   const [settingsSaved, setSettingsSaved] = useState(false);
+  const [isLoading] = useSimulatedLoading(400);
 
   const [passwords, setPasswords] = useState({
     current: '',
@@ -57,7 +60,14 @@ export default function ConsumerSettings() {
           )}
         </div>
 
-        <div className="settings-cards-list">
+        {isLoading ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <SkeletonForm fields={4} />
+            <SkeletonForm fields={3} />
+          </div>
+        ) : (
+          <div className="settings-cards-list">
+
           {/* Notifications Card */}
           <div className="card settings-section-card">
             <div className="settings-section-header">
@@ -200,6 +210,7 @@ export default function ConsumerSettings() {
             </button>
           </div>
         </div>
+        )}
       </div>
     </DashboardShell>
   );

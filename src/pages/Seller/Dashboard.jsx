@@ -2,19 +2,22 @@
    TradeLink — Seller Dashboard (Screen 8)
    Analytics, quick actions, chart, recent RFQs.
    ============================================================ */
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Package, FileText, ShoppingCart, Plus, Eye, TrendingUp,
-  ArrowRight, ChevronRight, ShieldCheck, BarChart3
+  ArrowRight, ChevronRight, ShieldCheck, BarChart3, RefreshCw
 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { useAuth } from '../../hooks';
+import { useAuth, useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton, SkeletonStatCard, SkeletonChart, SkeletonListItem } from '../../components/common';
 import { MOCK_SELLER_STATS, MOCK_RFQS, RFQ_STATUSES } from '../../utils/constants';
 import './SellerPages.css';
 
 export default function SellerDashboard({ activePage = 'dashboard' }) {
   const { user, verificationStatus } = useAuth();
+  const [isLoading, reload] = useSimulatedLoading(500);
 
   if (activePage !== 'dashboard') {
     return (
@@ -39,152 +42,203 @@ export default function SellerDashboard({ activePage = 'dashboard' }) {
         {/* Header */}
         <div className="seller-dashboard-header">
           <div>
-            <h1 style={{ fontSize: 'var(--font-size-2xl)', fontWeight: 'var(--font-weight-bold)', marginBottom: 'var(--space-1)' }}>
-              Welcome, {user?.companyName || user?.name || 'Seller'}!
-            </h1>
-            <p style={{ color: 'var(--color-text-secondary)' }}>
-              Manage your business, products and leads from here.
-            </p>
+            {isLoading ? (
+              <>
+                <Skeleton variant="rounded" width={260} height={32} style={{ marginBottom: 8 }} />
+                <Skeleton variant="text" width={340} height={15} />
+              </>
+            ) : (
+              <>
+                <h1 style={{ fontSize: 'var(--font-size-2xl)', fontWeight: 'var(--font-weight-bold)', marginBottom: 'var(--space-1)' }}>
+                  Welcome, {user?.companyName || user?.name || 'Seller'}!
+                </h1>
+                <p style={{ color: 'var(--color-text-secondary)' }}>
+                  Manage your business, products and leads from here.
+                </p>
+              </>
+            )}
           </div>
-          {verificationStatus === 'verified' && (
-            <span className="badge badge-success" style={{ padding: 'var(--space-2) var(--space-4)', fontSize: 'var(--font-size-sm)' }}>
-              <ShieldCheck size={14} /> Verified Seller
-            </span>
-          )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <button
+              className="btn btn-ghost btn-sm"
+              onClick={() => reload(600)}
+              disabled={isLoading}
+              title="Refresh dashboard data"
+            >
+              <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
+              {isLoading ? 'Loading...' : 'Refresh'}
+            </button>
+            {verificationStatus === 'verified' && (
+              <span className="badge badge-success" style={{ padding: 'var(--space-2) var(--space-4)', fontSize: 'var(--font-size-sm)' }}>
+                <ShieldCheck size={14} /> Verified Seller
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Stats Row */}
         <div className="seller-stats-row stagger-children">
-          <div className="card stat-card card-hover">
-            <div className="stat-card-icon primary"><Package size={22} /></div>
-            <div>
-              <div className="stat-card-value">{MOCK_SELLER_STATS.totalProducts}</div>
-              <div className="stat-card-label">Total Products</div>
-            </div>
-          </div>
-          <div className="card stat-card card-hover">
-            <div className="stat-card-icon accent"><FileText size={22} /></div>
-            <div>
-              <div className="stat-card-value">{MOCK_SELLER_STATS.activeRFQs}</div>
-              <div className="stat-card-label">Active RFQs</div>
-            </div>
-          </div>
-          <div className="card stat-card card-hover">
-            <div className="stat-card-icon warning"><ShoppingCart size={22} /></div>
-            <div>
-              <div className="stat-card-value">{MOCK_SELLER_STATS.pendingOrders}</div>
-              <div className="stat-card-label">Pending Orders</div>
-            </div>
-          </div>
+          {isLoading ? (
+            <SkeletonStatCard count={3} />
+          ) : (
+            <>
+              <div className="card stat-card card-hover">
+                <div className="stat-card-icon primary"><Package size={22} /></div>
+                <div>
+                  <div className="stat-card-value">{MOCK_SELLER_STATS.totalProducts}</div>
+                  <div className="stat-card-label">Total Products</div>
+                </div>
+              </div>
+              <div className="card stat-card card-hover">
+                <div className="stat-card-icon accent"><FileText size={22} /></div>
+                <div>
+                  <div className="stat-card-value">{MOCK_SELLER_STATS.activeRFQs}</div>
+                  <div className="stat-card-label">Active RFQs</div>
+                </div>
+              </div>
+              <div className="card stat-card card-hover">
+                <div className="stat-card-icon warning"><ShoppingCart size={22} /></div>
+                <div>
+                  <div className="stat-card-value">{MOCK_SELLER_STATS.pendingOrders}</div>
+                  <div className="stat-card-label">Pending Orders</div>
+                </div>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Grid: Growth Chart on Left, Quick Actions Card on Right (matching Screen 8) */}
         <div className="seller-middle-grid">
           {/* Growth Chart */}
-          <div className="seller-chart-card">
-            <div className="seller-chart-header">
-              <div>
-                <h3 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--space-1)' }}>
-                  Your Business Growth
-                </h3>
-                <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-secondary)' }}>
-                  Monthly leads & views overview
-                </p>
+          {isLoading ? (
+            <SkeletonChart height={200} />
+          ) : (
+            <div className="seller-chart-card">
+              <div className="seller-chart-header">
+                <div>
+                  <h3 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--space-1)' }}>
+                    Your Business Growth
+                  </h3>
+                  <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-secondary)' }}>
+                    Monthly leads & views overview
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                  <TrendingUp size={16} style={{ color: 'var(--color-success)' }} />
+                  <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-success)', fontWeight: 'var(--font-weight-semibold)' }}>
+                    +12% Monthly
+                  </span>
+                </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-                <TrendingUp size={16} style={{ color: 'var(--color-success)' }} />
-                <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-success)', fontWeight: 'var(--font-weight-semibold)' }}>
-                  +12% Monthly
-                </span>
+              <div className="seller-chart-wrapper">
+                <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={180}>
+                  <AreaChart
+                    data={MOCK_SELLER_STATS.monthlyGrowth}
+                    margin={{ top: 10, right: 10, left: -22, bottom: 0 }}
+                  >
+                    <defs>
+                      <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#4F46E5" stopOpacity={0.2} />
+                        <stop offset="95%" stopColor="#4F46E5" stopOpacity={0} />
+                      </linearGradient>
+                      <linearGradient id="colorLeads" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#10B981" stopOpacity={0.2} />
+                        <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+                    <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 11, fill: '#94A3B8' }} axisLine={false} tickLine={false} width={36} />
+                    <Tooltip
+                      contentStyle={{
+                        background: '#fff', border: '1px solid #E2E8F0',
+                        borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                        fontSize: '12px'
+                      }}
+                    />
+                    <Area type="monotone" dataKey="views" stroke="#4F46E5" fill="url(#colorViews)" strokeWidth={2} />
+                    <Area type="monotone" dataKey="leads" stroke="#10B981" fill="url(#colorLeads)" strokeWidth={2} />
+                  </AreaChart>
+                </ResponsiveContainer>
               </div>
             </div>
-            <div className="seller-chart-wrapper">
-              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={180}>
-                <AreaChart
-                  data={MOCK_SELLER_STATS.monthlyGrowth}
-                  margin={{ top: 10, right: 10, left: -22, bottom: 0 }}
-                >
-                  <defs>
-                    <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#4F46E5" stopOpacity={0.2} />
-                      <stop offset="95%" stopColor="#4F46E5" stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id="colorLeads" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#10B981" stopOpacity={0.2} />
-                      <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-                  <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11, fill: '#94A3B8' }} axisLine={false} tickLine={false} width={36} />
-                  <Tooltip
-                    contentStyle={{
-                      background: '#fff', border: '1px solid #E2E8F0',
-                      borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                      fontSize: '12px'
-                    }}
-                  />
-                  <Area type="monotone" dataKey="views" stroke="#4F46E5" fill="url(#colorViews)" strokeWidth={2} />
-                  <Area type="monotone" dataKey="leads" stroke="#10B981" fill="url(#colorLeads)" strokeWidth={2} />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
+          )}
 
           {/* Quick Actions Card matching Screen 8 */}
-          <div className="card seller-quick-actions-card">
-            <h3 className="seller-quick-actions-title">
-              Quick Actions
-            </h3>
-            <div className="seller-quick-actions-btns">
-              <button className="btn btn-secondary seller-action-btn">
-                <Plus size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
-                <span style={{ fontWeight: 600, color: '#1E293B' }}>Add Product</span>
-              </button>
-              <button className="btn btn-secondary seller-action-btn">
-                <FileText size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
-                <span style={{ fontWeight: 600, color: '#1E293B' }}>Create RFQ</span>
-              </button>
-              <button className="btn btn-secondary seller-action-btn">
-                <Eye size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
-                <span style={{ fontWeight: 600, color: '#1E293B' }}>View Orders</span>
-              </button>
+          {isLoading ? (
+            <div className="card seller-quick-actions-card" style={{ padding: '24px' }}>
+              <Skeleton variant="rounded" width={140} height={22} style={{ marginBottom: 20 }} />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <Skeleton variant="rounded" width="100%" height={44} />
+                <Skeleton variant="rounded" width="100%" height={44} />
+                <Skeleton variant="rounded" width="100%" height={44} />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="card seller-quick-actions-card">
+              <h3 className="seller-quick-actions-title">
+                Quick Actions
+              </h3>
+              <div className="seller-quick-actions-btns">
+                <button className="btn btn-secondary seller-action-btn">
+                  <Plus size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
+                  <span style={{ fontWeight: 600, color: '#1E293B' }}>Add Product</span>
+                </button>
+                <button className="btn btn-secondary seller-action-btn">
+                  <FileText size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
+                  <span style={{ fontWeight: 600, color: '#1E293B' }}>Create RFQ</span>
+                </button>
+                <button className="btn btn-secondary seller-action-btn">
+                  <Eye size={18} style={{ color: '#4F46E5', marginRight: 8 }} />
+                  <span style={{ fontWeight: 600, color: '#1E293B' }}>View Orders</span>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Full-width Recent RFQs Table matching Screen 8 */}
         <div className="seller-rfqs-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)' }}>
-            <h3 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>Recent RFQs</h3>
+            {isLoading ? (
+              <Skeleton variant="rounded" width={140} height={22} />
+            ) : (
+              <h3 style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)' }}>Recent RFQs</h3>
+            )}
             <Link to="/seller/rfqs" className="btn btn-text btn-sm">View All <ChevronRight size={14} /></Link>
           </div>
-          <div className="seller-rfq-list">
-            {MOCK_RFQS.slice(0, 3).map((rfq) => {
-              const status = RFQ_STATUSES[rfq.status.toUpperCase()] || RFQ_STATUSES.OPEN;
-              return (
-                <div key={rfq.id} className="seller-rfq-item">
-                  <div style={{ width: 38, height: 38, background: '#EEF2FF', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4F46E5', flexShrink: 0 }}>
-                    <Package size={18} />
-                  </div>
-                  <div className="seller-rfq-info">
-                    <div className="seller-rfq-product truncate">{rfq.product}</div>
-                    <div className="seller-rfq-meta">
-                      Qty: {rfq.quantity || 50} · {rfq.createdAt}
+
+          {isLoading ? (
+            <SkeletonListItem count={3} showIcon={true} />
+          ) : (
+            <div className="seller-rfq-list">
+              {MOCK_RFQS.slice(0, 3).map((rfq) => {
+                const status = RFQ_STATUSES[rfq.status.toUpperCase()] || RFQ_STATUSES.OPEN;
+                return (
+                  <div key={rfq.id} className="seller-rfq-item">
+                    <div style={{ width: 38, height: 38, background: '#EEF2FF', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4F46E5', flexShrink: 0 }}>
+                      <Package size={18} />
+                    </div>
+                    <div className="seller-rfq-info">
+                      <div className="seller-rfq-product truncate">{rfq.product}</div>
+                      <div className="seller-rfq-meta">
+                        Qty: {rfq.quantity || 50} · {rfq.createdAt}
+                      </div>
+                    </div>
+                    <div className="seller-rfq-actions">
+                      <span className={`badge badge-${status.color}`}>{status.label}</span>
+                      <button className="btn btn-secondary btn-sm" style={{ padding: '4px 12px', fontSize: '12px' }}>
+                        View
+                      </button>
                     </div>
                   </div>
-                  <div className="seller-rfq-actions">
-                    <span className={`badge badge-${status.color}`}>{status.label}</span>
-                    <button className="btn btn-secondary btn-sm" style={{ padding: '4px 12px', fontSize: '12px' }}>
-                      View
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </DashboardShell>
   );
 }
+

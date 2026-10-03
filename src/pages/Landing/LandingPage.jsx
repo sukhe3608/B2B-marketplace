@@ -10,8 +10,10 @@ import {
   Cpu, ShoppingBag, FlaskConical, Home, Wrench, Shirt,
   Factory, Truck, HeartPulse, Car, Box, Sparkles,
 } from 'lucide-react';
+import { useSimulatedLoading } from '../../hooks';
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
+import { Skeleton } from '../../components/common';
 import { CATEGORIES, TRUST_STATS, HOW_IT_WORKS_CONSUMER, HOW_IT_WORKS_SELLER, TESTIMONIALS } from '../../utils/constants';
 import heroBannerImg from '../../assets/hero-banner.jpg';
 import './LandingPage.css';
@@ -35,6 +37,7 @@ const TRUST_ICONS = { Users, BadgeCheck, Package, ShieldCheck };
 
 export default function LandingPage() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isLoading] = useSimulatedLoading(350);
 
   return (
     <div className="landing-page">
@@ -101,20 +104,32 @@ export default function LandingPage() {
 
           {/* ── Trust Stats Bar (4 horizontal cards matching wireframe) ── */}
           <div className="trust-stats-grid stagger-children" id="trust-bar">
-            {TRUST_STATS.map((stat, i) => {
-              const Icon = TRUST_ICONS[stat.icon] || Users;
-              return (
+            {isLoading ? (
+              Array.from({ length: 4 }).map((_, i) => (
                 <div className="trust-stat-card" key={i}>
-                  <div className="trust-stat-icon-circle">
-                    <Icon size={20} />
-                  </div>
-                  <div className="trust-stat-info">
-                    <div className="trust-stat-value">{stat.value}</div>
-                    <div className="trust-stat-label">{stat.label}</div>
+                  <Skeleton variant="circular" width={40} height={40} />
+                  <div style={{ flex: 1 }}>
+                    <Skeleton variant="rounded" width={70} height={20} style={{ marginBottom: 4 }} />
+                    <Skeleton variant="text" width={110} height={12} style={{ margin: 0 }} />
                   </div>
                 </div>
-              );
-            })}
+              ))
+            ) : (
+              TRUST_STATS.map((stat, i) => {
+                const Icon = TRUST_ICONS[stat.icon] || Users;
+                return (
+                  <div className="trust-stat-card" key={i}>
+                    <div className="trust-stat-icon-circle">
+                      <Icon size={20} />
+                    </div>
+                    <div className="trust-stat-info">
+                      <div className="trust-stat-value">{stat.value}</div>
+                      <div className="trust-stat-label">{stat.label}</div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       </section>
@@ -130,17 +145,26 @@ export default function LandingPage() {
           </div>
 
           <div className="categories-grid stagger-children">
-            {CATEGORIES.slice(0, 6).map((cat) => {
-              const Icon = CATEGORY_ICONS[cat.id] || Package;
-              return (
-                <a href="#" className="category-card" key={cat.id} id={`cat-${cat.id}`}>
-                  <div className="category-icon" style={{ background: `${cat.color}15`, color: cat.color }}>
-                    <Icon size={26} />
-                  </div>
-                  <span className="category-label">{cat.label}</span>
-                </a>
-              );
-            })}
+            {isLoading ? (
+              Array.from({ length: 6 }).map((_, i) => (
+                <div className="category-card" key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, padding: 24 }}>
+                  <Skeleton variant="circular" width={52} height={52} />
+                  <Skeleton variant="text" width={90} height={14} style={{ margin: 0 }} />
+                </div>
+              ))
+            ) : (
+              CATEGORIES.slice(0, 6).map((cat) => {
+                const Icon = CATEGORY_ICONS[cat.id] || Package;
+                return (
+                  <a href="#" className="category-card" key={cat.id} id={`cat-${cat.id}`}>
+                    <div className="category-icon" style={{ background: `${cat.color}15`, color: cat.color }}>
+                      <Icon size={26} />
+                    </div>
+                    <span className="category-label">{cat.label}</span>
+                  </a>
+                );
+              })
+            )}
           </div>
         </div>
       </section>

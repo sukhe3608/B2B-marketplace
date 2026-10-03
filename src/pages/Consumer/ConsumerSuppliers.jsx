@@ -8,7 +8,9 @@ import {
   Heart, Search, Star, MapPin, ShieldCheck, CheckCircle2,
   Clock, Package, MessageSquare, ExternalLink, Filter, Building2, PhoneCall
 } from 'lucide-react';
+import { useSimulatedLoading } from '../../hooks';
 import DashboardShell from '../../components/layout/DashboardShell';
+import { Skeleton, SkeletonCard } from '../../components/common';
 import { MOCK_SUPPLIERS, CATEGORIES } from '../../utils/constants';
 import './ConsumerPages.css';
 
@@ -19,6 +21,7 @@ export default function ConsumerSuppliers() {
   const [savedSupplierIds, setSavedSupplierIds] = useState(['sup-001', 'sup-002']);
   const [contactModalSupplier, setContactModalSupplier] = useState(null);
   const [inquirySuccess, setInquirySuccess] = useState(false);
+  const [isLoading] = useSimulatedLoading(450);
 
   const toggleSaveSupplier = (id) => {
     setSavedSupplierIds((prev) =>
@@ -88,7 +91,30 @@ export default function ConsumerSuppliers() {
 
         {/* Suppliers Grid */}
         <div className="suppliers-cards-grid">
-          {filteredSuppliers.map((sup) => {
+          {isLoading ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="card supplier-card" style={{ padding: '24px' }}>
+                <div style={{ display: 'flex', gap: 14, marginBottom: 16 }}>
+                  <Skeleton variant="rounded" width={48} height={48} />
+                  <div style={{ flex: 1 }}>
+                    <Skeleton variant="rounded" width="70%" height={20} style={{ marginBottom: 8 }} />
+                    <Skeleton variant="text" width="40%" height={12} />
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
+                  <Skeleton variant="rounded" width={80} height={20} />
+                  <Skeleton variant="rounded" width={90} height={20} />
+                </div>
+                <Skeleton variant="rounded" width="100%" height={56} style={{ marginBottom: 16 }} />
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <Skeleton variant="rounded" width={75} height={16} />
+                  <Skeleton variant="rounded" width={110} height={34} />
+                </div>
+              </div>
+            ))
+          ) : (
+            filteredSuppliers.map((sup) => {
+
             const isSaved = savedSupplierIds.includes(sup.id);
             return (
               <div key={sup.id} className="card supplier-card">
@@ -174,7 +200,7 @@ export default function ConsumerSuppliers() {
                 </div>
               </div>
             );
-          })}
+          }))}
         </div>
 
         {/* Quick Inquiry Modal */}
