@@ -168,8 +168,9 @@ export default function SellerRFQs() {
                 </div>
               </div>
             );
-          })}
-        </div>
+          })
+        )}
+      </div>
 
         {/* Submit Quotation Modal */}
         {quoteModalRfq && (

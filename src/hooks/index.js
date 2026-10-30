@@ -4,6 +4,7 @@
    ============================================================ */
 import { useState, useEffect, useCallback, useRef } from 'react';
 import useAuthStore from '../store/authStore';
+import useVerificationStore from '../store/verificationStore';
 
 /**
  * useAuth — convenient wrapper around auth store
@@ -219,3 +220,57 @@ export function useSimulatedLoading(delay = 450) {
 
   return [isLoading, reload, setIsLoading];
 }
+
+/**
+ * useVerificationStatus — polls localStorage every 5s for status updates from admin portal.
+ * Automatically syncs auth store's verificationStatus when admin approves/rejects.
+ * @returns {{ request, status, rejectedItems, rejectionNote, isRejected, isPending, isVerified }}
+ */
+export function useVerificationStatus() {
+  const { user, setVerificationStatus } = useAuth();
+  const getRequestBySellerId = useVerificationStore((s) => s.getRequestBySellerId);
+
+  const [request, setRequest] = useState(() =>
+    user?.id ? getRequestBySellerId(user.id) : null
+  );
+
+  useEffect(() => {
+    if (!user?.id) return;
+
+    const sync = () => {
+      // Read directly from localStorage so we see admin portal writes
+      try {
+        const raw = localStorage.getItem('tradelink-verification-requests');
+        if (!raw) return;
+        const { requests } = JSON.parse(raw);
+        const found = (requests || []).find((r) => r.sellerId === user.id);
+        if (found) {
+          setRequest(found);
+          // Sync auth store so guards + UI react immediately
+          if (found.status === 'verified' || found.status === 'rejected' || found.status === 're_submitted') {
+            setVerificationStatus(found.status);
+          }
+        }
+      } catch {
+        /* silent */
+      }
+    };
+
+    sync(); // run immediately
+    const interval = setInterval(sync, 5000); // then every 5s
+    return () => clearInterval(interval);
+  }, [user?.id, setVerificationStatus, getRequestBySellerId]);
+
+  return {
+    request,
+    status: request?.status || 'none',
+    rejectedItems: request?.rejectedItems || [],
+    rejectionNote: request?.rejectionNote || null,
+    isRejected: request?.status === 'rejected',
+    isPending: request?.status === 'pending' || request?.status === 'under_review' || request?.status === 're_submitted',
+    isVerified: request?.status === 'verified',
+  };
+}
+
+export { useQuery, useMutation } from './useQuery';
+

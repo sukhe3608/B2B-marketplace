@@ -1,0 +1,1390 @@
+[
+  {
+    "id": "prod-001",
+    "sellerId": "sel-001",
+    "categoryId": "cat-007",
+    "title": "High-Precision CNC Turned Parts — Aluminium 6061 Grade (Custom Specifications Available on Request)",
+    "description": "Premium CNC turned parts manufactured from Aluminium 6061-T6 with tight tolerances of ±0.01mm. Ideal for aerospace, automotive, and industrial applications.",
+    "images": [
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=400",
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-CNC-AL-001",
+    "unit": "Piece",
+    "moq": 50,
+    "gstRate": 18,
+    "leadTimeDays": 10,
+    "trackStock": true,
+    "reorderLevel": 100,
+    "priceSlabs": [
+      {
+        "minQty": 50,
+        "price": 285
+      },
+      {
+        "minQty": 200,
+        "price": 250
+      },
+      {
+        "minQty": 500,
+        "price": 220
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-002",
+    "sellerId": "sel-001",
+    "categoryId": "cat-008",
+    "title": "Industrial Hydraulic Control Valve — DN25 Stainless Steel 350 Bar",
+    "description": "High-pressure hydraulic control valve in SS304 with pressure rating up to 350 bar. Suitable for oil, water, and air applications.",
+    "images": [
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400",
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-HCV-SS-025",
+    "unit": "Piece",
+    "moq": 10,
+    "gstRate": 18,
+    "leadTimeDays": 14,
+    "trackStock": true,
+    "reorderLevel": 20,
+    "priceSlabs": [
+      {
+        "minQty": 10,
+        "price": 2400
+      },
+      {
+        "minQty": 50,
+        "price": 2150
+      },
+      {
+        "minQty": 100,
+        "price": 1950
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-003",
+    "sellerId": "sel-001",
+    "categoryId": "cat-007",
+    "title": "Precision SS316L Flanges — ANSI 150# Class, 1/2 to 12 Inch",
+    "description": "ANSI B16.5 standard flanges in SS316L. Available in sizes from 1/2 inch to 12 inch. Pressure rating 150#.",
+    "images": [
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400",
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-FLG-SS316-150",
+    "unit": "Piece",
+    "moq": 20,
+    "gstRate": 18,
+    "leadTimeDays": 7,
+    "trackStock": true,
+    "reorderLevel": 40,
+    "priceSlabs": [
+      {
+        "minQty": 20,
+        "price": 890
+      },
+      {
+        "minQty": 100,
+        "price": 780
+      },
+      {
+        "minQty": 500,
+        "price": 650
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-004",
+    "sellerId": "sel-002",
+    "categoryId": "cat-009",
+    "title": "Commercial LED Floodlight 150W — IP65 Outdoor Waterproof",
+    "description": "High-lumen 150W LED floodlight with 18000 lumens output. IP65 waterproof, suitable for warehouses, stadiums, and outdoor areas. 50,000 hours lifespan.",
+    "images": [
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=400",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-LED-FL-150W",
+    "unit": "Piece",
+    "moq": 10,
+    "gstRate": 12,
+    "leadTimeDays": 5,
+    "trackStock": true,
+    "reorderLevel": 20,
+    "priceSlabs": [
+      {
+        "minQty": 10,
+        "price": 1850
+      },
+      {
+        "minQty": 50,
+        "price": 1650
+      },
+      {
+        "minQty": 100,
+        "price": 1480
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-005",
+    "sellerId": "sel-002",
+    "categoryId": "cat-009",
+    "title": "LED Panel Light 60W — Surface Mount, Cool White 6500K",
+    "description": "Ultra-slim 60W surface-mount LED panel light. 7200 lumens, CRI>85, suitable for offices, hospitals, and commercial spaces.",
+    "images": [
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=400",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-LED-PNL-60W",
+    "unit": "Piece",
+    "moq": 20,
+    "gstRate": 12,
+    "leadTimeDays": 3,
+    "trackStock": true,
+    "reorderLevel": 50,
+    "priceSlabs": [
+      {
+        "minQty": 20,
+        "price": 780
+      },
+      {
+        "minQty": 100,
+        "price": 680
+      },
+      {
+        "minQty": 500,
+        "price": 590
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-006",
+    "sellerId": "sel-002",
+    "categoryId": "cat-010",
+    "title": "Automated Control Panel — 3-Phase 63A MCB with RCCB",
+    "description": "Pre-wired distribution panel with 3-phase 63A MCB, RCCB protection, and 12 outgoing ways. Powder-coated steel enclosure, IP44 protection.",
+    "images": [
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-DCP-3P-63A",
+    "unit": "Piece",
+    "moq": 5,
+    "gstRate": 18,
+    "leadTimeDays": 7,
+    "trackStock": true,
+    "reorderLevel": 10,
+    "priceSlabs": [
+      {
+        "minQty": 5,
+        "price": 8500
+      },
+      {
+        "minQty": 20,
+        "price": 7800
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-007",
+    "sellerId": "sel-003",
+    "categoryId": "cat-011",
+    "title": "Corrugated 5-Ply Shipping Boxes — 18x12x12 inch, 200GSM",
+    "description": "Heavy-duty 5-ply corrugated shipping boxes with 200 GSM kraft liner. Burst strength 15 kg/cm2. Available in custom sizes and with logo printing.",
+    "images": [
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=400",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "ZPM-BOX-5PLY-181212",
+    "unit": "Piece",
+    "moq": 500,
+    "gstRate": 12,
+    "leadTimeDays": 5,
+    "trackStock": true,
+    "reorderLevel": 1000,
+    "priceSlabs": [
+      {
+        "minQty": 500,
+        "price": 38
+      },
+      {
+        "minQty": 2000,
+        "price": 32
+      },
+      {
+        "minQty": 5000,
+        "price": 27
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-008",
+    "sellerId": "sel-003",
+    "categoryId": "cat-012",
+    "title": "Biodegradable Bubble Wrap Roll — 50m x 1.2m, Small Bubbles",
+    "description": "Eco-friendly biodegradable bubble wrap made from recycled polyethylene. Small 10mm bubbles, excellent cushioning.",
+    "images": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "ZPM-BW-BIO-50M",
+    "unit": "Roll",
+    "moq": 50,
+    "gstRate": 12,
+    "leadTimeDays": 3,
+    "trackStock": true,
+    "reorderLevel": 100,
+    "priceSlabs": [
+      {
+        "minQty": 50,
+        "price": 185
+      },
+      {
+        "minQty": 200,
+        "price": 165
+      },
+      {
+        "minQty": 1000,
+        "price": 145
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-009",
+    "sellerId": "sel-003",
+    "categoryId": "cat-011",
+    "title": "Custom Printed Packaging Tape — 48mm x 100m BOPP",
+    "description": "High-quality BOPP packaging tape with custom logo printing. 48mm width, 100m length per roll. Excellent adhesion on corrugated boxes.",
+    "images": [
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=400",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "ZPM-TAPE-BOPP-48-100",
+    "unit": "Roll",
+    "moq": 200,
+    "gstRate": 18,
+    "leadTimeDays": 7,
+    "trackStock": true,
+    "reorderLevel": 500,
+    "priceSlabs": [
+      {
+        "minQty": 200,
+        "price": 45
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-010",
+    "sellerId": "sel-004",
+    "categoryId": "cat-013",
+    "title": "Industrial Cotton Twill Fabric — 300 GSM, Natural Beige, 150cm Wide",
+    "description": "Heavy-duty cotton twill fabric, 300 GSM, 150cm width. Suitable for industrial workwear, upholstery, and bags. Pre-washed.",
+    "images": [
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=400",
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "KTF-CTN-TWL-300",
+    "unit": "Meter",
+    "moq": 200,
+    "gstRate": 5,
+    "leadTimeDays": 14,
+    "trackStock": true,
+    "reorderLevel": 500,
+    "priceSlabs": [
+      {
+        "minQty": 200,
+        "price": 95
+      },
+      {
+        "minQty": 1000,
+        "price": 82
+      },
+      {
+        "minQty": 5000,
+        "price": 70
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-011",
+    "sellerId": "sel-004",
+    "categoryId": "cat-014",
+    "title": "Flame-Retardant Safety Fabric — EN 11612 Certified, 350 GSM",
+    "description": "EN 11612 and NFPA 2112 certified flame-retardant fabric. 350 GSM, 100% FR-treated cotton. Available in navy blue, orange, and khaki.",
+    "images": [
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=400",
+      "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "KTF-FR-FAB-350",
+    "unit": "Meter",
+    "moq": 100,
+    "gstRate": 5,
+    "leadTimeDays": 21,
+    "trackStock": false,
+    "reorderLevel": 0,
+    "priceSlabs": [
+      {
+        "minQty": 100,
+        "price": 285
+      },
+      {
+        "minQty": 500,
+        "price": 248
+      },
+      {
+        "minQty": 2000,
+        "price": 215
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-012",
+    "sellerId": "sel-004",
+    "categoryId": "cat-013",
+    "title": "Bulk Spun Cotton Yarn — 40s Count, Combed Ring Spun",
+    "description": "Premium 40s count combed ring-spun cotton yarn. Excellent evenness and tensile strength. Available in natural white and bleached.",
+    "images": [
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=400",
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "KTF-YARN-40S-RNG",
+    "unit": "Kg",
+    "moq": 500,
+    "gstRate": 5,
+    "leadTimeDays": 10,
+    "trackStock": false,
+    "reorderLevel": 0,
+    "priceSlabs": [
+      {
+        "minQty": 500,
+        "price": 175
+      },
+      {
+        "minQty": 2000,
+        "price": 158
+      },
+      {
+        "minQty": 10000,
+        "price": 142
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-013",
+    "sellerId": "sel-005",
+    "categoryId": "cat-015",
+    "title": "Industrial Grade Acetone — 99.5% Purity, IS 196 Grade",
+    "description": "High-purity acetone (99.5%) conforming to IS 196 standard. Suitable for metal cleaning, paint thinning, and resin production. Available in 200L drums.",
+    "images": [
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400",
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1603555501671-8f96b3fce8e4?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "NVC-ACT-99.5-200L",
+    "unit": "Litre",
+    "moq": 200,
+    "gstRate": 18,
+    "leadTimeDays": 5,
+    "trackStock": true,
+    "reorderLevel": 400,
+    "priceSlabs": [
+      {
+        "minQty": 200,
+        "price": 68
+      },
+      {
+        "minQty": 1000,
+        "price": 62
+      },
+      {
+        "minQty": 5000,
+        "price": 55
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-014",
+    "sellerId": "sel-006",
+    "categoryId": "cat-016",
+    "title": "ISI Certified Safety Helmet — Class A, Ratchet Adjustment",
+    "description": "IS 2925 certified class A safety helmet with ratchet adjustment. High-density polyethylene shell with 4-point nylon suspension.",
+    "images": [
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400",
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "SIT-HLM-ISI-A-RCH",
+    "unit": "Piece",
+    "moq": 50,
+    "gstRate": 12,
+    "leadTimeDays": 3,
+    "trackStock": true,
+    "reorderLevel": 100,
+    "priceSlabs": [
+      {
+        "minQty": 50,
+        "price": 220
+      },
+      {
+        "minQty": 500,
+        "price": 195
+      },
+      {
+        "minQty": 2000,
+        "price": 170
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-015",
+    "sellerId": "sel-001",
+    "categoryId": "cat-008",
+    "title": "Pneumatic Air Cylinder — Double-Acting, Bore 80mm Stroke 200mm",
+    "description": "ISO 15552 standard double-acting pneumatic cylinder. Bore 80mm, stroke 200mm. Operating pressure 1.5-10 bar.",
+    "images": [
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400",
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-PAC-DA-80-200",
+    "unit": "Piece",
+    "moq": 5,
+    "gstRate": 18,
+    "leadTimeDays": 10,
+    "trackStock": true,
+    "reorderLevel": 10,
+    "priceSlabs": [
+      {
+        "minQty": 5,
+        "price": 3200
+      },
+      {
+        "minQty": 25,
+        "price": 2850
+      },
+      {
+        "minQty": 100,
+        "price": 2550
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-016",
+    "sellerId": "sel-002",
+    "categoryId": "cat-009",
+    "title": "LED Street Light 80W — IP66, Type II Road Distribution",
+    "description": "80W LED street light with Type II road distribution. IP66 weatherproof, IK10 impact resistant. 10,400 lumens, 50,000 hours lifespan.",
+    "images": [
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=400",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-LED-SL-80W",
+    "unit": "Piece",
+    "moq": 10,
+    "gstRate": 12,
+    "leadTimeDays": 7,
+    "trackStock": true,
+    "reorderLevel": 15,
+    "priceSlabs": [
+      {
+        "minQty": 10,
+        "price": 4200
+      },
+      {
+        "minQty": 50,
+        "price": 3750
+      },
+      {
+        "minQty": 200,
+        "price": 3300
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-017",
+    "sellerId": "sel-003",
+    "categoryId": "cat-011",
+    "title": "Heavy-Duty 7-Ply Export Carton Box — 24x18x18 inch, 250 GSM",
+    "description": "Export-quality 7-ply corrugated carton with 250 GSM kraft. Burst strength 22 kg/cm2. Moisture-resistant coating available.",
+    "images": [
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=400",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "ZPM-BOX-7PLY-241818",
+    "unit": "Piece",
+    "moq": 200,
+    "gstRate": 12,
+    "leadTimeDays": 7,
+    "trackStock": true,
+    "reorderLevel": 500,
+    "priceSlabs": [
+      {
+        "minQty": 200,
+        "price": 72
+      },
+      {
+        "minQty": 1000,
+        "price": 62
+      },
+      {
+        "minQty": 3000,
+        "price": 54
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-018",
+    "sellerId": "sel-004",
+    "categoryId": "cat-014",
+    "title": "Anti-Static Safety Coverall — EN 1149-5 Certified, Navy Blue",
+    "description": "EN 1149-5 anti-static certified safety coverall with multiple cargo pockets. Available XS-4XL. Machine washable 50+ times.",
+    "images": [
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=400",
+      "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "KTF-COV-AS-NVB",
+    "unit": "Piece",
+    "moq": 50,
+    "gstRate": 12,
+    "leadTimeDays": 15,
+    "trackStock": true,
+    "reorderLevel": 100,
+    "priceSlabs": [
+      {
+        "minQty": 50,
+        "price": 850
+      },
+      {
+        "minQty": 200,
+        "price": 750
+      },
+      {
+        "minQty": 1000,
+        "price": 650
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-019",
+    "sellerId": "sel-001",
+    "categoryId": "cat-007",
+    "title": "Pillow Block Bearing Housing UCF205 — Cast Iron, 25mm Bore",
+    "description": "UCF205 pillow block bearing housing in cast iron with grease nipple. Bore size 25mm, bolt hole span 120mm. For conveyor systems.",
+    "images": [
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=400",
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-BHG-UCF205-CI",
+    "unit": "Piece",
+    "moq": 20,
+    "gstRate": 18,
+    "leadTimeDays": 5,
+    "trackStock": true,
+    "reorderLevel": 40,
+    "priceSlabs": [
+      {
+        "minQty": 20,
+        "price": 185
+      },
+      {
+        "minQty": 100,
+        "price": 162
+      },
+      {
+        "minQty": 500,
+        "price": 140
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-020",
+    "sellerId": "sel-002",
+    "categoryId": "cat-010",
+    "title": "PLC Motor Starter Panel — 15HP DOL with Overload Protection",
+    "description": "PLC-controlled direct-on-line motor starter panel for 15HP 3-phase motors. Built-in overload relay, phase failure relay. SIEMENS/ABB components.",
+    "images": [
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-PLC-MSP-15HP",
+    "unit": "Piece",
+    "moq": 2,
+    "gstRate": 18,
+    "leadTimeDays": 21,
+    "trackStock": true,
+    "reorderLevel": 3,
+    "priceSlabs": [
+      {
+        "minQty": 2,
+        "price": 28500
+      },
+      {
+        "minQty": 10,
+        "price": 25000
+      },
+      {
+        "minQty": 25,
+        "price": 22000
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-021",
+    "sellerId": "sel-003",
+    "categoryId": "cat-012",
+    "title": "EPE Foam Sheet — 10mm Thick, 1m x 2m, Density 20 kg/m3",
+    "description": "Expanded polyethylene foam sheet. 10mm thickness, 1m x 2m size. Water-resistant, shock-absorbing. Available in custom thicknesses.",
+    "images": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "ZPM-FOAM-EPE-10MM",
+    "unit": "Sheet",
+    "moq": 100,
+    "gstRate": 12,
+    "leadTimeDays": 4,
+    "trackStock": true,
+    "reorderLevel": 200,
+    "priceSlabs": [
+      {
+        "minQty": 100,
+        "price": 58
+      },
+      {
+        "minQty": 500,
+        "price": 50
+      },
+      {
+        "minQty": 2000,
+        "price": 43
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-022",
+    "sellerId": "sel-004",
+    "categoryId": "cat-013",
+    "title": "Fire-Retardant Silicone Coated Canvas — 600 GSM, Both Sides",
+    "description": "Heavy-duty fire-retardant canvas with silicone coating on both sides. 600 GSM, temperature resistance up to 500°C.",
+    "images": [
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=400",
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "KTF-CNVS-FR-600-SLC",
+    "unit": "Meter",
+    "moq": 100,
+    "gstRate": 5,
+    "leadTimeDays": 20,
+    "trackStock": false,
+    "reorderLevel": 0,
+    "priceSlabs": [
+      {
+        "minQty": 100,
+        "price": 380
+      },
+      {
+        "minQty": 500,
+        "price": 340
+      },
+      {
+        "minQty": 2000,
+        "price": 300
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-023",
+    "sellerId": "sel-001",
+    "categoryId": "cat-008",
+    "title": "Solenoid Valve 2/2 Way NC — 24V DC, G1/2, Brass Body",
+    "description": "2/2 way normally closed solenoid valve. 24V DC coil, G1/2 threaded, brass body with NBR seal. Operating pressure 0-10 bar.",
+    "images": [
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400",
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-SOL-22-NC-24V",
+    "unit": "Piece",
+    "moq": 10,
+    "gstRate": 18,
+    "leadTimeDays": 7,
+    "trackStock": true,
+    "reorderLevel": 20,
+    "priceSlabs": [
+      {
+        "minQty": 10,
+        "price": 1850
+      },
+      {
+        "minQty": 50,
+        "price": 1600
+      },
+      {
+        "minQty": 200,
+        "price": 1400
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-024",
+    "sellerId": "sel-002",
+    "categoryId": "cat-009",
+    "title": "LED High Bay Light 200W — UFO Style, IP65, 26000 Lumens",
+    "description": "200W UFO-style LED high bay light for warehouses. 26,000 lumens at 130 lm/W. IP65 waterproof, IK10 rated. 3 years warranty.",
+    "images": [
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=400",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-LED-HB-200W-UFO",
+    "unit": "Piece",
+    "moq": 5,
+    "gstRate": 12,
+    "leadTimeDays": 5,
+    "trackStock": true,
+    "reorderLevel": 10,
+    "priceSlabs": [
+      {
+        "minQty": 5,
+        "price": 4800
+      },
+      {
+        "minQty": 25,
+        "price": 4300
+      },
+      {
+        "minQty": 100,
+        "price": 3850
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-025",
+    "sellerId": "sel-003",
+    "categoryId": "cat-011",
+    "title": "Mono-Carton Folding Box — 300 GSM SBS Board, Custom Print Ready",
+    "description": "Premium SBS board mono-carton for retail packaging. 300 GSM, 4-colour offset printing, spot UV coating available.",
+    "images": [
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=400",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "ZPM-MONO-SBS-300",
+    "unit": "Piece",
+    "moq": 1000,
+    "gstRate": 12,
+    "leadTimeDays": 10,
+    "trackStock": true,
+    "reorderLevel": 2000,
+    "priceSlabs": [
+      {
+        "minQty": 1000,
+        "price": 8
+      },
+      {
+        "minQty": 5000,
+        "price": 6.5
+      },
+      {
+        "minQty": 20000,
+        "price": 5.2
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-026",
+    "sellerId": "sel-005",
+    "categoryId": "cat-015",
+    "title": "IPA (Isopropyl Alcohol) 99.9% — Electronic Grade, 200L Drum",
+    "description": "Electronic grade IPA 99.9% purity for PCB cleaning, semiconductor manufacturing. Low water content <0.1%. UN1219 compliant.",
+    "images": [
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400",
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1603555501671-8f96b3fce8e4?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "NVC-IPA-99.9-200L",
+    "unit": "Litre",
+    "moq": 200,
+    "gstRate": 18,
+    "leadTimeDays": 7,
+    "trackStock": true,
+    "reorderLevel": 400,
+    "priceSlabs": [
+      {
+        "minQty": 200,
+        "price": 95
+      },
+      {
+        "minQty": 1000,
+        "price": 86
+      },
+      {
+        "minQty": 5000,
+        "price": 76
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-027",
+    "sellerId": "sel-001",
+    "categoryId": "cat-007",
+    "title": "Custom Machined Shaft — C45 Steel, Hardened & Ground, 50mm Dia",
+    "description": "Precision-machined C45 carbon steel shaft, hardened and ground to Ra 0.4 surface finish. 50mm nominal diameter, custom lengths up to 3m.",
+    "images": [
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=400",
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-SHFT-C45-50MM",
+    "unit": "Piece",
+    "moq": 5,
+    "gstRate": 18,
+    "leadTimeDays": 15,
+    "trackStock": true,
+    "reorderLevel": 10,
+    "priceSlabs": [
+      {
+        "minQty": 5,
+        "price": 3800
+      },
+      {
+        "minQty": 20,
+        "price": 3400
+      },
+      {
+        "minQty": 100,
+        "price": 2950
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-028",
+    "sellerId": "sel-002",
+    "categoryId": "cat-010",
+    "title": "SMPS Industrial Power Supply — 24V DC 10A DIN Rail Mount",
+    "description": "Switching mode power supply, 24V DC output, 10A / 240W. DIN rail mount, wide input 85-264VAC. CE marked.",
+    "images": [
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-SMPS-24V-10A",
+    "unit": "Piece",
+    "moq": 10,
+    "gstRate": 18,
+    "leadTimeDays": 4,
+    "trackStock": true,
+    "reorderLevel": 20,
+    "priceSlabs": [
+      {
+        "minQty": 10,
+        "price": 1450
+      },
+      {
+        "minQty": 50,
+        "price": 1250
+      },
+      {
+        "minQty": 200,
+        "price": 1080
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-029",
+    "sellerId": "sel-004",
+    "categoryId": "cat-014",
+    "title": "Chemical Resistant PVC Apron — 900x1200mm, Yellow",
+    "description": "Heavy-duty PVC-coated polyester apron. 900x1200mm, 500 GSM. Resistant to acids, alkalis, and solvents.",
+    "images": [
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=400",
+      "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "KTF-APRN-PVC-YLW",
+    "unit": "Piece",
+    "moq": 50,
+    "gstRate": 12,
+    "leadTimeDays": 10,
+    "trackStock": true,
+    "reorderLevel": 100,
+    "priceSlabs": [
+      {
+        "minQty": 50,
+        "price": 280
+      },
+      {
+        "minQty": 200,
+        "price": 245
+      },
+      {
+        "minQty": 1000,
+        "price": 210
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-030",
+    "sellerId": "sel-003",
+    "categoryId": "cat-012",
+    "title": "Stretch Wrap Film — LLDPE 500mm x 300m, 23 Micron",
+    "description": "Machine-grade stretch wrap film, LLDPE, 500mm width, 300m length, 23 micron. High elongation up to 200%.",
+    "images": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "ZPM-STRCH-LLDPE-23M",
+    "unit": "Roll",
+    "moq": 100,
+    "gstRate": 12,
+    "leadTimeDays": 3,
+    "trackStock": true,
+    "reorderLevel": 200,
+    "priceSlabs": [
+      {
+        "minQty": 100,
+        "price": 125
+      },
+      {
+        "minQty": 500,
+        "price": 112
+      },
+      {
+        "minQty": 2000,
+        "price": 98
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-031",
+    "sellerId": "sel-001",
+    "categoryId": "cat-008",
+    "title": "Hydraulic Pressure Gauge — 0-400 Bar, Glycerine Filled, 100mm Dial",
+    "description": "Glycerine-filled Bourdon tube pressure gauge, 0-400 bar range, 100mm dial, G1/4 lower connection. ASME B40.100 class 1.6 accuracy.",
+    "images": [
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400",
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-PGG-GLY-400-100",
+    "unit": "Piece",
+    "moq": 10,
+    "gstRate": 18,
+    "leadTimeDays": 5,
+    "trackStock": true,
+    "reorderLevel": 25,
+    "priceSlabs": [
+      {
+        "minQty": 10,
+        "price": 780
+      },
+      {
+        "minQty": 50,
+        "price": 680
+      },
+      {
+        "minQty": 200,
+        "price": 590
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-032",
+    "sellerId": "sel-002",
+    "categoryId": "cat-009",
+    "title": "LED Batten Light 36W — 4 Feet, Frosted Diffuser, Warm White 3000K",
+    "description": "36W 4-foot LED batten light with frosted diffuser. 3960 lumens, CRI>80, warm white 3000K. IP20. Flicker-free driver.",
+    "images": [
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=400",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-LED-BTN-36W-4F",
+    "unit": "Piece",
+    "moq": 50,
+    "gstRate": 12,
+    "leadTimeDays": 3,
+    "trackStock": true,
+    "reorderLevel": 100,
+    "priceSlabs": [
+      {
+        "minQty": 50,
+        "price": 420
+      },
+      {
+        "minQty": 200,
+        "price": 375
+      },
+      {
+        "minQty": 1000,
+        "price": 325
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-033",
+    "sellerId": "sel-005",
+    "categoryId": "cat-015",
+    "title": "Toluene Technical Grade — 99.5% Purity, 200L Barrel",
+    "description": "Technical grade toluene 99.5% purity for paints, adhesives, and rubber manufacturing. UN1294 compliant packaging.",
+    "images": [
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400",
+      "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1603555501671-8f96b3fce8e4?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "NVC-TOL-99.5-200L",
+    "unit": "Litre",
+    "moq": 200,
+    "gstRate": 18,
+    "leadTimeDays": 5,
+    "trackStock": true,
+    "reorderLevel": 400,
+    "priceSlabs": [
+      {
+        "minQty": 200,
+        "price": 72
+      },
+      {
+        "minQty": 1000,
+        "price": 65
+      },
+      {
+        "minQty": 5000,
+        "price": 58
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-034",
+    "sellerId": "sel-006",
+    "categoryId": "cat-016",
+    "title": "Full Face Respirator Mask — EN 136 Class 3, ABEK2P3 Filter",
+    "description": "Full face respirator with EN 136 class 3 certification. Compatible with ABEK2P3 combination filter. Wide view visor, silicone face seal.",
+    "images": [
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400",
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "SIT-RESP-FF-EN136",
+    "unit": "Piece",
+    "moq": 20,
+    "gstRate": 12,
+    "leadTimeDays": 5,
+    "trackStock": true,
+    "reorderLevel": 50,
+    "priceSlabs": [
+      {
+        "minQty": 20,
+        "price": 2800
+      },
+      {
+        "minQty": 100,
+        "price": 2500
+      },
+      {
+        "minQty": 500,
+        "price": 2200
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-035",
+    "sellerId": "sel-001",
+    "categoryId": "cat-007",
+    "title": "V-Belt Taper Lock Pulley — 6 Groove SPA, 250mm PCD, Cast Iron",
+    "description": "Cast iron taper lock V-belt pulley, 6 groove SPA/SPB section, 250mm pitch circle diameter. Suitable for standard 1610 taper lock bush.",
+    "images": [
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=400",
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-PUL-TL-6G-250",
+    "unit": "Piece",
+    "moq": 5,
+    "gstRate": 18,
+    "leadTimeDays": 12,
+    "trackStock": true,
+    "reorderLevel": 10,
+    "priceSlabs": [
+      {
+        "minQty": 5,
+        "price": 4200
+      },
+      {
+        "minQty": 20,
+        "price": 3700
+      },
+      {
+        "minQty": 100,
+        "price": 3200
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-036",
+    "sellerId": "sel-003",
+    "categoryId": "cat-011",
+    "title": "Paper Edge Protector — 50x50x3mm, 1.2m Length, Moisture Resistant",
+    "description": "Spiral wound paper edge protectors for pallet protection. 50x50mm cross section, 3mm wall, 1.2m standard length.",
+    "images": [
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=400",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "ZPM-EP-50-50-3-120",
+    "unit": "Piece",
+    "moq": 500,
+    "gstRate": 12,
+    "leadTimeDays": 4,
+    "trackStock": true,
+    "reorderLevel": 1000,
+    "priceSlabs": [
+      {
+        "minQty": 500,
+        "price": 12
+      },
+      {
+        "minQty": 2000,
+        "price": 10
+      },
+      {
+        "minQty": 10000,
+        "price": 8.5
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-037",
+    "sellerId": "sel-002",
+    "categoryId": "cat-010",
+    "title": "Variable Frequency Drive — 5.5kW 3-Phase 415V, Compact Series",
+    "description": "Vector control VFD for 5.5kW/7.5HP 3-phase motors. Input 3-phase 415V ±15%. Built-in EMC filter, RS485 Modbus communication.",
+    "images": [
+      "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-VFD-5.5K-3P-415",
+    "unit": "Piece",
+    "moq": 2,
+    "gstRate": 18,
+    "leadTimeDays": 7,
+    "trackStock": true,
+    "reorderLevel": 5,
+    "priceSlabs": [
+      {
+        "minQty": 2,
+        "price": 18500
+      },
+      {
+        "minQty": 10,
+        "price": 16500
+      },
+      {
+        "minQty": 25,
+        "price": 14800
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-038",
+    "sellerId": "sel-004",
+    "categoryId": "cat-013",
+    "title": "Polypropylene Woven Sack — 50kg Capacity, UV Stabilised",
+    "description": "UV-stabilised PP woven sacks for agricultural and chemical products. 50kg SWL, double-stitched bottom, reinforced loops.",
+    "images": [
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=400",
+      "https://images.unsplash.com/photo-1558171813-1d882e94e3b0?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "KTF-PPSK-50K-UV",
+    "unit": "Piece",
+    "moq": 1000,
+    "gstRate": 5,
+    "leadTimeDays": 12,
+    "trackStock": true,
+    "reorderLevel": 2000,
+    "priceSlabs": [
+      {
+        "minQty": 1000,
+        "price": 28
+      },
+      {
+        "minQty": 5000,
+        "price": 24
+      },
+      {
+        "minQty": 20000,
+        "price": 20
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "prod-039",
+    "sellerId": "sel-001",
+    "categoryId": "cat-007",
+    "title": "Flexible Gear Coupling — Size 4, Torque 1500 Nm, Carbon Steel",
+    "description": "DRAFT — Internal product under development. Not published to catalog.",
+    "images": [
+      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "APE-GCP-FLEX-S4-CS",
+    "unit": "Set",
+    "moq": 2,
+    "gstRate": 18,
+    "leadTimeDays": 20,
+    "trackStock": true,
+    "reorderLevel": 4,
+    "priceSlabs": [
+      {
+        "minQty": 2,
+        "price": 12500
+      },
+      {
+        "minQty": 10,
+        "price": 11000
+      },
+      {
+        "minQty": 50,
+        "price": 9800
+      }
+    ],
+    "status": "draft"
+  },
+  {
+    "id": "prod-040",
+    "sellerId": "sel-002",
+    "categoryId": "cat-009",
+    "title": "LED Grow Light 100W — Full Spectrum, Samsung LM301B Chips",
+    "description": "100W full spectrum LED grow light using Samsung LM301B diodes. Uniform PPFD distribution, IR/UV wavelengths included. Dimmer 0-100%.",
+    "images": [
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=400",
+      "https://images.unsplash.com/photo-1597423244036-ef5020e83f3c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80"
+    ],
+    "sku": "BET-LED-GRW-100W-SMG",
+    "unit": "Piece",
+    "moq": 10,
+    "gstRate": 12,
+    "leadTimeDays": 10,
+    "trackStock": true,
+    "reorderLevel": 15,
+    "priceSlabs": [
+      {
+        "minQty": 10,
+        "price": 5800
+      },
+      {
+        "minQty": 50,
+        "price": 5200
+      },
+      {
+        "minQty": 200,
+        "price": 4650
+      }
+    ],
+    "status": "active"
+  }
+]

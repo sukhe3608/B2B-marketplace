@@ -7,15 +7,24 @@ import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, FileText, Heart, MessageSquare, User, Settings,
   Package, ShoppingCart, Building2, ShieldCheck, ChevronLeft, ChevronRight, Store, Check,
+  ShoppingBag, Warehouse, BarChart3,
 } from 'lucide-react';
 import Navbar from './Navbar';
-import { CONSUMER_NAV, SELLER_NAV } from '../../utils/constants';
+import {
+  CONSUMER_NAV,
+  SELLER_NAV,
+  SHOP_ENABLED,
+  INVENTORY_ENABLED,
+  CONSUMER_SHOP_NAV,
+  SELLER_INVENTORY_NAV,
+} from '../../utils/constants';
 import { useBreakpoint } from '../../hooks';
 import './DashboardShell.css';
 
 const ICON_MAP = {
   LayoutDashboard, FileText, Heart, MessageSquare, User, Settings,
   Package, ShoppingCart, Building2, ShieldCheck,
+  ShoppingBag, Warehouse, BarChart3,
 };
 
 export default function DashboardShell({ role = 'consumer', children }) {
@@ -24,7 +33,13 @@ export default function DashboardShell({ role = 'consumer', children }) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
-  const navItems = role === 'seller' ? SELLER_NAV : CONSUMER_NAV;
+  let navItems = role === 'seller' ? [...SELLER_NAV] : [...CONSUMER_NAV];
+  if (role === 'seller' && INVENTORY_ENABLED) {
+    navItems = [...navItems, ...SELLER_INVENTORY_NAV];
+  }
+  if (role === 'consumer' && SHOP_ENABLED) {
+    navItems = [...navItems, ...CONSUMER_SHOP_NAV];
+  }
   const isCompact = isMobile || isTablet;
 
   return (

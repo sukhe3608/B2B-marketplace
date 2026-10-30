@@ -36,6 +36,31 @@ import SellerSettings from '../pages/Seller/SellerSettings';
 // Screen 12 Design System Showcase
 import DesignSystemPage from '../pages/DesignSystem/DesignSystemPage';
 
+// Feature flags
+import { SHOP_ENABLED, INVENTORY_ENABLED } from '../utils/constants';
+
+// Seller Inventory Pages
+import InventoryOverviewPage from '../pages/Seller/Inventory/InventoryOverviewPage';
+import ProductListPage from '../pages/Seller/Inventory/ProductListPage';
+import ProductFormPage from '../pages/Seller/Inventory/ProductFormPage';
+import InventoryProductDetailPage from '../pages/Seller/Inventory/ProductDetailPage';
+import BulkImportPage from '../pages/Seller/Inventory/BulkImportPage';
+import MovementsLedgerPage from '../pages/Seller/Inventory/MovementsLedgerPage';
+import InventoryOrdersPage from '../pages/Seller/Inventory/InventoryOrdersPage';
+import InventoryOrderDetailPage from '../pages/Seller/Inventory/InventoryOrderDetailPage';
+import InventoryRFQsPage from '../pages/Seller/Inventory/InventoryRFQsPage';
+import ReportsPage from '../pages/Seller/Inventory/ReportsPage';
+
+// Consumer Shop Pages
+import ShopListingPage from '../pages/Consumer/Shop/ShopListingPage';
+import ShopProductDetailPage from '../pages/Consumer/Shop/ProductDetailPage';
+import CartPage from '../pages/Consumer/Shop/CartPage';
+import CheckoutPage from '../pages/Consumer/Shop/CheckoutPage';
+import OrdersPage from '../pages/Consumer/Shop/OrdersPage';
+import OrderDetailPage from '../pages/Consumer/Shop/OrderDetailPage';
+import ConsumerRFQsShopPage from '../pages/Consumer/Shop/ConsumerRFQsShopPage';
+import WishlistPage from '../pages/Consumer/Shop/WishlistPage';
+
 export default function AppRouter() {
   return (
     <HashRouter>
@@ -216,6 +241,170 @@ export default function AppRouter() {
             </RoleBasedRoute>
           }
         />
+
+        {/* ── Seller Inventory Routes (Gated by INVENTORY_ENABLED) ─ */}
+        {INVENTORY_ENABLED && (
+          <>
+            <Route
+              path="/seller/inventory"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <InventoryOverviewPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/products"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <ProductListPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/products/new"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <ProductFormPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/products/:id/edit"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <ProductFormPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/products/:id"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <InventoryProductDetailPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/import"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <BulkImportPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/movements"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <MovementsLedgerPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/orders"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <InventoryOrdersPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/orders/:id"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <InventoryOrderDetailPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/rfqs"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <InventoryRFQsPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/seller/inventory/reports"
+              element={
+                <RoleBasedRoute allowedRole="seller">
+                  <ReportsPage />
+                </RoleBasedRoute>
+              }
+            />
+          </>
+        )}
+
+        {/* ── Consumer Shop Routes (Gated by SHOP_ENABLED) ──────── */}
+        {SHOP_ENABLED && (
+          <>
+            <Route
+              path="/consumer/shop"
+              element={
+                <RoleBasedRoute allowedRole="consumer">
+                  <ShopListingPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/consumer/shop/:id"
+              element={
+                <RoleBasedRoute allowedRole="consumer">
+                  <ShopProductDetailPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/consumer/cart"
+              element={
+                <RoleBasedRoute allowedRole="consumer">
+                  <CartPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/consumer/checkout"
+              element={
+                <RoleBasedRoute allowedRole="consumer">
+                  <CheckoutPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/consumer/orders"
+              element={
+                <RoleBasedRoute allowedRole="consumer">
+                  <OrdersPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/consumer/orders/:id"
+              element={
+                <RoleBasedRoute allowedRole="consumer">
+                  <OrderDetailPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/consumer/rfqs-shop"
+              element={
+                <RoleBasedRoute allowedRole="consumer">
+                  <ConsumerRFQsShopPage />
+                </RoleBasedRoute>
+              }
+            />
+            <Route
+              path="/consumer/wishlist"
+              element={
+                <RoleBasedRoute allowedRole="consumer">
+                  <WishlistPage />
+                </RoleBasedRoute>
+              }
+            />
+          </>
+        )}
 
         {/* ── Screen 12 Design System Showcase ───────────────── */}
         <Route path="/design-system" element={<DesignSystemPage />} />

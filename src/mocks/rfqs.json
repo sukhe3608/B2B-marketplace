@@ -1,0 +1,51 @@
+[
+  {
+    "id":"rfq-s001","productId":"prod-001","consumerId":"consumer-demo","sellerId":"sel-001",
+    "qty":1000,"message":"We need 1000 units of aluminium CNC parts for our automotive line. Can you provide custom tolerances of ±0.005mm?",
+    "status":"open","quotedPrice":null,"quotedMessage":null,
+    "createdAt":"2026-09-18T10:00:00Z","updatedAt":"2026-09-18T10:00:00Z"
+  },
+  {
+    "id":"rfq-s002","productId":"prod-004","consumerId":"consumer-demo","sellerId":"sel-002",
+    "qty":200,"message":"Need 200 units of 150W LED floodlights for a stadium project. Can you offer bulk pricing?",
+    "status":"quoted","quotedPrice":1420,"quotedMessage":"For 200 units: ₹1,420/pc including 3-year on-site warranty. Delivery in 10 days.",
+    "createdAt":"2026-09-15T09:00:00Z","updatedAt":"2026-09-17T11:00:00Z"
+  },
+  {
+    "id":"rfq-s003","productId":"prod-007","consumerId":"consumer-demo","sellerId":"sel-003",
+    "qty":10000,"message":"Require 10,000 corrugated boxes monthly on recurring basis. Need custom size 20x15x10 with logo.",
+    "status":"open","quotedPrice":null,"quotedMessage":null,
+    "createdAt":"2026-09-20T14:00:00Z","updatedAt":"2026-09-20T14:00:00Z"
+  },
+  {
+    "id":"rfq-s004","productId":"prod-010","consumerId":"consumer-demo","sellerId":"sel-004",
+    "qty":5000,"message":"Need 5000m of industrial cotton twill for safety workwear. Can you provide IS 11871 test certificates?",
+    "status":"quoted","quotedPrice":78,"quotedMessage":"For 5000m: ₹78/meter with IS 11871 certification. Lead time 21 days. 50% advance required.",
+    "createdAt":"2026-09-14T10:00:00Z","updatedAt":"2026-09-16T14:00:00Z"
+  },
+  {
+    "id":"rfq-s005","productId":"prod-002","consumerId":"consumer-demo","sellerId":"sel-001",
+    "qty":50,"message":"Require 50 hydraulic control valves for chemical plant piping upgrade. Material certificate required.",
+    "status":"closed","quotedPrice":2050,"quotedMessage":"Offering ₹2,050/pc for 50 units with full material certificate. Delivery 21 days.",
+    "createdAt":"2026-09-08T10:00:00Z","updatedAt":"2026-09-12T10:00:00Z"
+  },
+  {
+    "id":"rfq-s006","productId":"prod-024","consumerId":"consumer-demo","sellerId":"sel-002",
+    "qty":50,"message":"Need 50 units of 200W LED high bay lights for factory expansion. EESL-approved products available?",
+    "status":"open","quotedPrice":null,"quotedMessage":null,
+    "createdAt":"2026-09-21T09:00:00Z","updatedAt":"2026-09-21T09:00:00Z"
+  },
+  {
+    "id":"rfq-s007","productId":"prod-011","consumerId":"consumer-demo","sellerId":"sel-004",
+    "qty":2000,"message":"Require 2000m of FR fabric for refinery workwear. Must meet NFPA 2112 standard.",
+    "status":"open","quotedPrice":null,"quotedMessage":null,
+    "createdAt":"2026-09-22T10:00:00Z","updatedAt":"2026-09-22T10:00:00Z"
+  },
+  {
+    "id":"rfq-s008","productId":"prod-037","consumerId":"consumer-demo","sellerId":"sel-002",
+    "qty":5,"message":"Need 5 VFDs for a pumping station project. Can you provide site commissioning support in Pune?",
+    "status":"quoted","quotedPrice":15800,"quotedMessage":"For 5 units: ₹15,800/VFD including commissioning in Pune. 1-year on-site warranty.",
+    "createdAt":"2026-09-17T10:00:00Z","updatedAt":"2026-09-19T11:00:00Z"
+  }
+]
+

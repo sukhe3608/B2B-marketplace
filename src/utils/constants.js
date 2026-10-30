@@ -271,6 +271,28 @@ export const FEATURES = {
   AUTO_GST_VERIFY: true,
 };
 
+/* ── Shop & Inventory Feature Flags ──────────────────────── */
+export const SHOP_ENABLED      = true;
+export const INVENTORY_ENABLED = true;
+
+/* ── Consumer Shop Nav (added when SHOP_ENABLED) ─────────── */
+export const CONSUMER_SHOP_NAV = [
+  { id: 'shop',     label: 'Shop',     icon: 'ShoppingBag', path: '/consumer/shop' },
+  { id: 'cart',     label: 'Cart',     icon: 'ShoppingCart', path: '/consumer/cart' },
+  { id: 'orders',   label: 'My Orders', icon: 'Package',    path: '/consumer/orders' },
+  { id: 'wishlist', label: 'Wishlist', icon: 'Heart',        path: '/consumer/wishlist' },
+  { id: 'rfqs-shop', label: 'My RFQs', icon: 'FileText',    path: '/consumer/rfqs-shop' },
+];
+
+/* ── Seller Inventory Nav (added when INVENTORY_ENABLED) ─── */
+export const SELLER_INVENTORY_NAV = [
+  { id: 'inventory',  label: 'Inventory',  icon: 'Warehouse',    path: '/seller/inventory' },
+  { id: 'inv-products', label: 'Products', icon: 'Package',      path: '/seller/inventory/products' },
+  { id: 'inv-orders', label: 'Inv Orders', icon: 'ShoppingCart', path: '/seller/inventory/orders' },
+  { id: 'inv-rfqs',  label: 'Inv RFQs',   icon: 'FileText',     path: '/seller/inventory/rfqs' },
+  { id: 'reports',   label: 'Reports',    icon: 'BarChart3',     path: '/seller/inventory/reports' },
+];
+
 /* ── Mock Verified Suppliers (for Consumer Directory) ──────── */
 export const MOCK_SUPPLIERS = [
   {

@@ -1,0 +1,125 @@
+[
+  {
+    "id":"ord-001","consumerId":"consumer-demo","sellerId":"sel-001",
+    "lines":[{"productId":"prod-001","qty":50,"unitPrice":250,"gstRate":18}],
+    "totals":{"subtotal":12500,"gst":2250,"grand":14750},
+    "status":"shipped",
+    "address":{"name":"Rahul Kumar","phone":"9876543210","line1":"12 MG Road","city":"Mumbai","state":"Maharashtra","pincode":"400001"},
+    "paymentMode":"cod","createdAt":"2026-09-20T11:00:00Z",
+    "timeline":[
+      {"status":"placed","at":"2026-09-20T11:00:00Z","note":"Order placed by consumer"},
+      {"status":"confirmed","at":"2026-09-21T09:00:00Z","note":"Confirmed by seller"},
+      {"status":"shipped","at":"2026-09-22T14:00:00Z","note":"Dispatched via BlueDart #9482134"}
+    ]
+  },
+  {
+    "id":"ord-002","consumerId":"consumer-demo","sellerId":"sel-001",
+    "lines":[{"productId":"prod-002","qty":5,"unitPrice":2400,"gstRate":18}],
+    "totals":{"subtotal":12000,"gst":2160,"grand":14160},
+    "status":"placed",
+    "address":{"name":"Priya Sharma","phone":"9823456789","line1":"45 Baner Road","city":"Pune","state":"Maharashtra","pincode":"411045"},
+    "paymentMode":"pay_later","createdAt":"2026-09-18T15:00:00Z",
+    "timeline":[{"status":"placed","at":"2026-09-18T15:00:00Z","note":"Order placed"}]
+  },
+  {
+    "id":"ord-003","consumerId":"consumer-demo","sellerId":"sel-001",
+    "lines":[{"productId":"prod-003","qty":20,"unitPrice":890,"gstRate":18}],
+    "totals":{"subtotal":17800,"gst":3204,"grand":21004},
+    "status":"confirmed",
+    "address":{"name":"Amit Verma","phone":"9812345678","line1":"8 Ring Road","city":"Delhi","state":"Delhi","pincode":"110001"},
+    "paymentMode":"cod","createdAt":"2026-09-19T10:00:00Z",
+    "timeline":[
+      {"status":"placed","at":"2026-09-19T10:00:00Z","note":"Order placed"},
+      {"status":"confirmed","at":"2026-09-20T10:00:00Z","note":"Confirmed by seller"}
+    ]
+  },
+  {
+    "id":"ord-004","consumerId":"consumer-demo","sellerId":"sel-002",
+    "lines":[{"productId":"prod-004","qty":80,"unitPrice":1850,"gstRate":12}],
+    "totals":{"subtotal":148000,"gst":17760,"grand":165760},
+    "status":"delivered",
+    "address":{"name":"Mahindra Logistics","phone":"9867891234","line1":"Bhosari MIDC","city":"Pune","state":"Maharashtra","pincode":"411026"},
+    "paymentMode":"pay_later","createdAt":"2026-09-05T10:00:00Z",
+    "timeline":[
+      {"status":"placed","at":"2026-09-05T10:00:00Z","note":"Order placed"},
+      {"status":"confirmed","at":"2026-09-06T09:00:00Z","note":"Confirmed"},
+      {"status":"shipped","at":"2026-09-08T10:00:00Z","note":"Dispatched via DTDC"},
+      {"status":"delivered","at":"2026-09-10T14:00:00Z","note":"Delivered and accepted"}
+    ]
+  },
+  {
+    "id":"ord-005","consumerId":"consumer-demo","sellerId":"sel-002",
+    "lines":[{"productId":"prod-005","qty":10,"unitPrice":780,"gstRate":12}],
+    "totals":{"subtotal":7800,"gst":936,"grand":8736},
+    "status":"shipped",
+    "address":{"name":"Tata Projects","phone":"9845678901","line1":"Worli","city":"Mumbai","state":"Maharashtra","pincode":"400018"},
+    "paymentMode":"cod","createdAt":"2026-09-20T12:00:00Z",
+    "timeline":[
+      {"status":"placed","at":"2026-09-20T12:00:00Z","note":"Order placed"},
+      {"status":"confirmed","at":"2026-09-20T16:00:00Z","note":"Confirmed"},
+      {"status":"shipped","at":"2026-09-21T14:00:00Z","note":"Dispatched"}
+    ]
+  },
+  {
+    "id":"ord-006","consumerId":"consumer-demo","sellerId":"sel-002",
+    "lines":[{"productId":"prod-006","qty":8,"unitPrice":8500,"gstRate":18}],
+    "totals":{"subtotal":68000,"gst":12240,"grand":80240},
+    "status":"delivered",
+    "address":{"name":"Reliance Industries","phone":"9834567890","line1":"Nariman Point","city":"Mumbai","state":"Maharashtra","pincode":"400021"},
+    "paymentMode":"pay_later","createdAt":"2026-09-08T09:00:00Z",
+    "timeline":[
+      {"status":"placed","at":"2026-09-08T09:00:00Z","note":"Order placed"},
+      {"status":"confirmed","at":"2026-09-09T09:00:00Z","note":"Confirmed"},
+      {"status":"shipped","at":"2026-09-11T10:00:00Z","note":"Dispatched"},
+      {"status":"delivered","at":"2026-09-12T14:00:00Z","note":"Delivered"}
+    ]
+  },
+  {
+    "id":"ord-007","consumerId":"consumer-demo","sellerId":"sel-002",
+    "lines":[{"productId":"prod-006","qty":2,"unitPrice":8500,"gstRate":18}],
+    "totals":{"subtotal":17000,"gst":3060,"grand":20060},
+    "status":"placed",
+    "address":{"name":"Godrej Properties","phone":"9867891234","line1":"LBS Marg","city":"Mumbai","state":"Maharashtra","pincode":"400086"},
+    "paymentMode":"cod","createdAt":"2026-09-21T09:00:00Z",
+    "timeline":[{"status":"placed","at":"2026-09-21T09:00:00Z","note":"Order placed"}]
+  },
+  {
+    "id":"ord-008","consumerId":"consumer-demo","sellerId":"sel-003",
+    "lines":[{"productId":"prod-007","qty":700,"unitPrice":32,"gstRate":12}],
+    "totals":{"subtotal":22400,"gst":2688,"grand":25088},
+    "status":"delivered",
+    "address":{"name":"Flipkart Warehousing","phone":"9812345678","line1":"Vasai East","city":"Mumbai","state":"Maharashtra","pincode":"401208"},
+    "paymentMode":"pay_later","createdAt":"2026-09-03T10:00:00Z",
+    "timeline":[
+      {"status":"placed","at":"2026-09-03T10:00:00Z","note":"Order placed"},
+      {"status":"confirmed","at":"2026-09-04T09:00:00Z","note":"Confirmed"},
+      {"status":"shipped","at":"2026-09-06T10:00:00Z","note":"Dispatched"},
+      {"status":"delivered","at":"2026-09-08T14:00:00Z","note":"Delivered"}
+    ]
+  },
+  {
+    "id":"ord-009","consumerId":"consumer-demo","sellerId":"sel-003",
+    "lines":[{"productId":"prod-007","qty":500,"unitPrice":32,"gstRate":12}],
+    "totals":{"subtotal":16000,"gst":1920,"grand":17920},
+    "status":"confirmed",
+    "address":{"name":"Amazon Logistics","phone":"9823456789","line1":"Bhiwandi","city":"Thane","state":"Maharashtra","pincode":"421302"},
+    "paymentMode":"cod","createdAt":"2026-09-22T11:00:00Z",
+    "timeline":[
+      {"status":"placed","at":"2026-09-22T11:00:00Z","note":"Order placed"},
+      {"status":"confirmed","at":"2026-09-22T15:00:00Z","note":"Confirmed by seller"}
+    ]
+  },
+  {
+    "id":"ord-010","consumerId":"consumer-demo","sellerId":"sel-003",
+    "lines":[{"productId":"prod-008","qty":60,"unitPrice":185,"gstRate":12}],
+    "totals":{"subtotal":11100,"gst":1332,"grand":12432},
+    "status":"cancelled","cancelReason":"Customer changed requirements",
+    "address":{"name":"Meesho Fulfilment","phone":"9834567890","line1":"Malad","city":"Mumbai","state":"Maharashtra","pincode":"400064"},
+    "paymentMode":"cod","createdAt":"2026-09-12T10:00:00Z",
+    "timeline":[
+      {"status":"placed","at":"2026-09-12T10:00:00Z","note":"Order placed"},
+      {"status":"cancelled","at":"2026-09-13T09:00:00Z","note":"Customer changed requirements"}
+    ]
+  }
+]
+

@@ -1,0 +1,19 @@
+[
+  { "id": "cat-001", "name": "Machinery", "parentId": null, "slug": "machinery", "iconName": "Factory", "color": "#4F46E5" },
+  { "id": "cat-002", "name": "Electronics", "parentId": null, "slug": "electronics", "iconName": "Cpu", "color": "#7C3AED" },
+  { "id": "cat-003", "name": "Packaging Materials", "parentId": null, "slug": "packaging-materials", "iconName": "Box", "color": "#059669" },
+  { "id": "cat-004", "name": "Textiles", "parentId": null, "slug": "textiles", "iconName": "Sparkles", "color": "#DC2626" },
+  { "id": "cat-005", "name": "Chemicals", "parentId": null, "slug": "chemicals", "iconName": "FlaskConical", "color": "#F59E0B" },
+  { "id": "cat-006", "name": "Industrial Tools", "parentId": null, "slug": "industrial-tools", "iconName": "Wrench", "color": "#06B6D4" },
+  { "id": "cat-007", "name": "CNC & Precision Parts", "parentId": "cat-001", "slug": "cnc-precision-parts", "iconName": "Settings", "color": "#4F46E5" },
+  { "id": "cat-008", "name": "Hydraulics & Pneumatics", "parentId": "cat-001", "slug": "hydraulics-pneumatics", "iconName": "Gauge", "color": "#4338CA" },
+  { "id": "cat-009", "name": "LED Lighting", "parentId": "cat-002", "slug": "led-lighting", "iconName": "Lightbulb", "color": "#7C3AED" },
+  { "id": "cat-010", "name": "Control Panels", "parentId": "cat-002", "slug": "control-panels", "iconName": "ToggleLeft", "color": "#6D28D9" },
+  { "id": "cat-011", "name": "Corrugated Boxes", "parentId": "cat-003", "slug": "corrugated-boxes", "iconName": "Package", "color": "#059669" },
+  { "id": "cat-012", "name": "Bubble Wrap & Foam", "parentId": "cat-003", "slug": "bubble-wrap-foam", "iconName": "Shield", "color": "#047857" },
+  { "id": "cat-013", "name": "Cotton Fabrics", "parentId": "cat-004", "slug": "cotton-fabrics", "iconName": "Layers", "color": "#DC2626" },
+  { "id": "cat-014", "name": "Safety Workwear", "parentId": "cat-004", "slug": "safety-workwear", "iconName": "ShieldCheck", "color": "#B91C1C" },
+  { "id": "cat-015", "name": "Industrial Solvents", "parentId": "cat-005", "slug": "industrial-solvents", "iconName": "Droplets", "color": "#F59E0B" },
+  { "id": "cat-016", "name": "Safety Helmets & PPE", "parentId": "cat-006", "slug": "safety-helmets-ppe", "iconName": "HardHat", "color": "#06B6D4" }
+]
+

@@ -1,6 +1,6 @@
 export { default as CategoryIcon } from './CategoryIcon';
+export { default as ProductImage } from './ProductImage';
 export {
-  default as Skeleton,
   Skeleton,
   SkeletonText,
   SkeletonStatCard,
